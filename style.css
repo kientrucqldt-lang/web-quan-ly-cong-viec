@@ -82,6 +82,8 @@ body {
 .btn:active { transform: translateY(1px); }
 .btn-primary { background: var(--primary); color: #fff; }
 .btn-primary:hover { background: var(--primary-dark); }
+.btn-secondary { background: #0f766e; color: #fff; }
+.btn-secondary:hover { background: #0d5d57; }
 .btn-ghost { background: rgba(255,255,255,.15); color: #fff; border: 1px solid rgba(255,255,255,.35); }
 .btn-ghost:hover { background: rgba(255,255,255,.28); }
 .tab-actions .btn-ghost, .toolbar .btn-ghost { background: #eef0f3; color: var(--text); border: 1px solid var(--border); }
@@ -207,5 +209,21 @@ select.input { cursor: pointer; }
 input[type=range] { width: 100%; accent-color: var(--primary); }
 .modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 6px; }
 .modal-actions .btn-ghost { background: #eef0f3; color: var(--text); }
+
+/* Import modal */
+.modal-wide { max-width: 760px; }
+.modal-hint { font-size: 13px; color: var(--muted); margin-bottom: 14px; }
+.map-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 16px; margin-bottom: 16px; }
+@media (max-width: 600px) { .map-grid { grid-template-columns: 1fr; } }
+.map-row { display: flex; flex-direction: column; gap: 4px; }
+.map-row .col-name { font-size: 12px; font-weight: 700; color: var(--text); }
+.map-row .col-name small { font-weight: 400; color: var(--muted); }
+.map-row select { padding: 7px 9px; border: 1px solid var(--border); border-radius: 7px; font-size: 13px; background: #fff; }
+.check-line { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; margin-bottom: 14px; }
+.check-line input { width: auto; }
+.imp-preview { max-height: 220px; overflow: auto; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 16px; }
+.imp-preview table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.imp-preview th { position: sticky; top: 0; background: #f9fafb; padding: 6px 9px; text-align: left; border-bottom: 1px solid var(--border); white-space: nowrap; }
+.imp-preview td { padding: 5px 9px; border-bottom: 1px solid var(--border); max-width: 240px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
 .app-footer { text-align: center; color: var(--muted); font-size: 12.5px; padding: 18px; border-top: 1px solid var(--border); background: var(--panel); }

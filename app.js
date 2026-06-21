@@ -370,6 +370,8 @@ function refreshSelects() {
   document.getElementById("task-field").innerHTML = fieldOpts;
   document.getElementById("filter-field").innerHTML =
     `<option value="">Tất cả lĩnh vực</option>` + fieldOpts;
+  const impDef = document.getElementById("imp-default-field");
+  if (impDef) impDef.innerHTML = fieldOpts;
 
   // Cán bộ
   const staffOpts = state.staff.map(s => `<option>${esc(s.name)}</option>`).join("");
@@ -421,6 +423,187 @@ function esc(s) {
   return String(s).replace(/[&<>"']/g, c =>
     ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
 }
+
+/* ============================================================
+   NHẬP TỪ VĂN BẢN ĐẾN (Excel / CSV)
+   ============================================================ */
+const importModal = document.getElementById("import-modal");
+let impHeaders = [];   // tên cột trong file
+let impRows = [];      // dữ liệu (mảng các mảng)
+
+const IMP_TARGETS = [
+  ["ignore",   "— Bỏ qua —"],
+  ["title",    "★ Tên công việc (Trích yếu)"],
+  ["field",    "Lĩnh vực"],
+  ["assignee", "Cán bộ phụ trách"],
+  ["due",      "Hạn xử lý"],
+  ["priority", "Mức ưu tiên / Độ khẩn"],
+  ["so_den",   "Số đến"],
+  ["ky_hieu",  "Số ký hiệu"],
+  ["co_quan",  "Cơ quan ban hành"],
+  ["ngay_den", "Ngày đến"],
+  ["notes",    "Ghi chú / Nội dung"],
+];
+
+// Bỏ dấu tiếng Việt + chuẩn hóa để dò tên cột
+function normVi(s) {
+  return String(s).toLowerCase()
+    .normalize("NFD").replace(/\p{M}/gu, "")
+    .replace(/đ/g, "d").replace(/\s+/g, " ").trim();
+}
+function guessTarget(header) {
+  const h = normVi(header);
+  if (/(trich yeu|noi dung van ban|tieu de)/.test(h)) return "title";
+  if (/linh vuc/.test(h)) return "field";
+  if (/(nguoi xu ly|don vi xu ly|xu ly chinh|chuyen vien|phu trach|nguoi nhan)/.test(h)) return "assignee";
+  if (/(han xu ly|han giai quyet|ngay het han|han xl|thoi han)/.test(h)) return "due";
+  if (/(do khan|muc do khan|^khan$)/.test(h)) return "priority";
+  if (/so den|so thu tu den|so vb den/.test(h)) return "so_den";
+  if (/(so ky hieu|so\/ky hieu|so kh|so, ky hieu|so va ky hieu)/.test(h)) return "ky_hieu";
+  if (/(co quan|noi gui|noi ban hanh|don vi gui|ban hanh)/.test(h)) return "co_quan";
+  if (/ngay den/.test(h)) return "ngay_den";
+  if (/(ngay van ban|ngay ban hanh|ghi chu|noi dung)/.test(h)) return "notes";
+  return "ignore";
+}
+
+function isoFromDate(d) {
+  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+}
+function toISODate(v) {
+  if (v == null || v === "") return "";
+  if (v instanceof Date && !isNaN(v)) return isoFromDate(v);
+  if (typeof v === "number" && window.XLSX && XLSX.SSF) {
+    const d = XLSX.SSF.parse_date_code(v);
+    if (d && d.y) return `${d.y}-${String(d.m).padStart(2,"0")}-${String(d.d).padStart(2,"0")}`;
+  }
+  const s = String(v).trim();
+  let m = s.match(/^(\d{1,2})[\/\-.](\d{1,2})[\/\-.](\d{2,4})/);
+  if (m) { let [_, d, mo, y] = m; if (y.length === 2) y = "20" + y; return `${y}-${mo.padStart(2,"0")}-${d.padStart(2,"0")}`; }
+  m = s.match(/^(\d{4})[\/\-.](\d{1,2})[\/\-.](\d{1,2})/);
+  if (m) { let [_, y, mo, d] = m; return `${y}-${mo.padStart(2,"0")}-${d.padStart(2,"0")}`; }
+  return "";
+}
+function mapPriority(v) {
+  const h = normVi(v);
+  if (/hoa toc/.test(h)) return "Khẩn";
+  if (/thuong khan|thuong[\s-]*khan/.test(h)) return "Khẩn";
+  if (/khan/.test(h)) return "Khẩn";
+  if (/cao/.test(h)) return "Cao";
+  return "Trung bình";
+}
+
+document.getElementById("btn-import-vb").addEventListener("click", () =>
+  document.getElementById("vb-file-input").click());
+
+document.getElementById("vb-file-input").addEventListener("change", e => {
+  const file = e.target.files[0]; if (!file) return;
+  if (!window.XLSX) { alert("Chưa tải được thư viện đọc Excel. Vui lòng kiểm tra kết nối mạng rồi thử lại."); return; }
+  const reader = new FileReader();
+  reader.onload = () => {
+    try {
+      const wb = XLSX.read(new Uint8Array(reader.result), { type: "array", cellDates: true });
+      const ws = wb.Sheets[wb.SheetNames[0]];
+      const aoa = XLSX.utils.sheet_to_json(ws, { header: 1, raw: true, defval: "" });
+      // Tìm dòng tiêu đề: dòng đầu tiên có >=2 ô chữ
+      let hi = aoa.findIndex(r => r.filter(c => String(c).trim()).length >= 2);
+      if (hi < 0) hi = 0;
+      impHeaders = aoa[hi].map(c => String(c).trim());
+      impRows = aoa.slice(hi + 1).filter(r => r.some(c => String(c).trim() !== ""));
+      if (!impHeaders.length || !impRows.length) { alert("File không có dữ liệu để nhập."); return; }
+      openImportModal();
+    } catch (err) {
+      alert("Không đọc được file: " + err.message);
+    }
+    e.target.value = "";
+  };
+  reader.readAsArrayBuffer(file);
+});
+
+function openImportModal() {
+  document.getElementById("imp-count").textContent = impRows.length;
+  // Lưới ánh xạ cột
+  document.getElementById("imp-map").innerHTML = impHeaders.map((h, i) => {
+    const g = guessTarget(h);
+    const opts = IMP_TARGETS.map(([v, lbl]) =>
+      `<option value="${v}" ${v === g ? "selected" : ""}>${lbl}</option>`).join("");
+    const sample = (impRows[0] && impRows[0][i] != null) ? String(impRows[0][i]).slice(0, 28) : "";
+    return `<div class="map-row">
+      <div class="col-name">${esc(h || "(cột " + (i+1) + ")")} ${sample ? `<small>vd: ${esc(sample)}</small>` : ""}</div>
+      <select data-idx="${i}">${opts}</select>
+    </div>`;
+  }).join("");
+  // Bảng xem trước
+  const head = impHeaders.map(h => `<th>${esc(h)}</th>`).join("");
+  const body = impRows.slice(0, 6).map(r =>
+    `<tr>${impHeaders.map((_, i) => `<td>${esc(r[i] != null ? (r[i] instanceof Date ? fmtDate(isoFromDate(r[i])) : r[i]) : "")}</td>`).join("")}</tr>`
+  ).join("");
+  document.getElementById("imp-preview").innerHTML =
+    `<table><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table>`;
+  importModal.hidden = false;
+}
+
+document.getElementById("imp-confirm").addEventListener("click", () => {
+  const sels = [...document.querySelectorAll("#imp-map select")];
+  const map = {};                       // target -> column index
+  sels.forEach(s => { const t = s.value; if (t !== "ignore" && map[t] === undefined) map[t] = +s.dataset.idx; });
+  if (map.title === undefined) {
+    alert("Vui lòng chọn một cột làm “Tên công việc (Trích yếu)”.");
+    return;
+  }
+  const defField = document.getElementById("imp-default-field").value;
+  const defStatus = document.getElementById("imp-default-status").value;
+  const skipDup = document.getElementById("imp-skip-dup").checked;
+
+  const existKeys = new Set(state.tasks.map(t => (t.docNo || "") + "|" + (t.docSymbol || "")).filter(k => k !== "|"));
+  const cell = (r, t) => map[t] !== undefined ? r[map[t]] : "";
+
+  let added = 0, skipped = 0;
+  impRows.forEach(r => {
+    const title = String(cell(r, "title") || "").trim();
+    if (!title) { skipped++; return; }
+    const docNo = String(cell(r, "so_den") || "").trim();
+    const docSym = String(cell(r, "ky_hieu") || "").trim();
+    const key = docNo + "|" + docSym;
+    if (skipDup && key !== "|" && existKeys.has(key)) { skipped++; return; }
+
+    const agency = String(cell(r, "co_quan") || "").trim();
+    const arrive = toISODate(cell(r, "ngay_den"));
+    const extraNote = String(cell(r, "notes") || "").trim();
+    const noteParts = [];
+    if (docNo) noteParts.push("Số đến: " + docNo);
+    if (docSym) noteParts.push("Số KH: " + docSym);
+    if (agency) noteParts.push("CQ ban hành: " + agency);
+    if (arrive) noteParts.push("Ngày đến: " + fmtDate(arrive));
+    if (extraNote) noteParts.push(extraNote);
+
+    const fieldVal = String(cell(r, "field") || "").trim() || defField;
+
+    state.tasks.push({
+      id: uid(),
+      title,
+      field: fieldVal,
+      assignee: String(cell(r, "assignee") || "").trim(),
+      priority: map.priority !== undefined ? mapPriority(cell(r, "priority")) : "Trung bình",
+      status: defStatus,
+      start: arrive,
+      due: toISODate(cell(r, "due")),
+      progress: 0,
+      notes: noteParts.join(" · "),
+      docNo, docSymbol: docSym, docAgency: agency,
+      source: "vanban-den",
+      createdAt: new Date().toISOString(),
+    });
+    if (key !== "|") existKeys.add(key);
+    added++;
+  });
+
+  save();
+  importModal.hidden = true;
+  renderAll();
+  // chuyển sang tab Đầu việc
+  document.querySelector('.tab[data-tab="tasks"]').click();
+  alert(`Đã nhập ${added} văn bản thành đầu việc.` + (skipped ? `\nBỏ qua ${skipped} dòng (trùng hoặc thiếu trích yếu).` : ""));
+});
 
 /* ============================================================
    RENDER TỔNG

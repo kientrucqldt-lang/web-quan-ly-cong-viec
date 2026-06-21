@@ -53,6 +53,8 @@
     <section id="tasks" class="panel">
       <div class="toolbar">
         <button id="btn-add-task" class="btn btn-primary">＋ Thêm đầu việc</button>
+        <button id="btn-import-vb" class="btn btn-secondary" title="Nhập danh sách từ file Excel/CSV kết xuất từ hệ Văn bản đến">📥 Nhập từ Văn bản đến</button>
+        <input type="file" id="vb-file-input" accept=".xlsx,.xls,.csv" hidden />
         <input type="search" id="search-task" class="input" placeholder="Tìm theo tên việc..." />
         <select id="filter-field" class="input"><option value="">Tất cả lĩnh vực</option></select>
         <select id="filter-status" class="input">
@@ -195,10 +197,41 @@
     </div>
   </div>
 
+  <!-- ===== MODAL NHẬP TỪ VĂN BẢN ĐẾN ===== -->
+  <div class="modal-overlay" id="import-modal" hidden>
+    <div class="modal modal-wide">
+      <h2>📥 Nhập từ Văn bản đến</h2>
+      <p class="modal-hint">Đã đọc <b id="imp-count">0</b> dòng từ file. Hãy đối chiếu mỗi cột của file với trường tương ứng trong phần mềm, rồi bấm <b>Nhập</b>.</p>
+      <div class="map-grid" id="imp-map"></div>
+      <div class="form-row">
+        <label>Lĩnh vực mặc định (khi không có cột Lĩnh vực)
+          <select id="imp-default-field" class="input"></select>
+        </label>
+        <label>Trạng thái ban đầu
+          <select id="imp-default-status" class="input">
+            <option selected>Chưa bắt đầu</option>
+            <option>Đang thực hiện</option>
+            <option>Chờ xử lý</option>
+          </select>
+        </label>
+      </div>
+      <label class="check-line">
+        <input type="checkbox" id="imp-skip-dup" checked />
+        Bỏ qua văn bản đã có (trùng Số đến / Số ký hiệu)
+      </label>
+      <div class="imp-preview" id="imp-preview"></div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-ghost" data-close>Hủy</button>
+        <button type="button" id="imp-confirm" class="btn btn-primary">Nhập vào danh sách</button>
+      </div>
+    </div>
+  </div>
+
   <footer class="app-footer">
     Dữ liệu được lưu trên trình duyệt của bạn. Nhớ <strong>Xuất file</strong> định kỳ để sao lưu.
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
