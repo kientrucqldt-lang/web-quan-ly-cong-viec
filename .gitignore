@@ -6,3 +6,8 @@ Desktop.ini
 
 # Backup data exports (không đẩy dữ liệu cục bộ lên repo)
 sao-luu-cong-viec-ktht-*.json
+
+# File mẫu / dữ liệu văn bản cục bộ (không công khai)
+mau-van-ban-den.csv
+van-ban-den*.xlsx
+van-ban-den*.csv
