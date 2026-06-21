@@ -658,31 +658,68 @@ function renderAll() {
   renderStaff();
 }
 
-/* ---------- Dữ liệu mẫu lần đầu ---------- */
-function seedIfEmpty() {
-  if (state.tasks.length || state.staff.length) return;
-  state.staff = [
-    { id: uid(), name: "Nguyễn Văn A", role: "Trưởng phòng", area: "Phụ trách chung" },
-    { id: uid(), name: "Trần Thị B", role: "Chuyên viên", area: "Trật tự xây dựng & cấp phép" },
-    { id: uid(), name: "Lê Văn C", role: "Chuyên viên", area: "Quản lý đất đai, môi trường" },
-  ];
-  const d = (n) => { const x = new Date(); x.setDate(x.getDate()+n); return x.toISOString().slice(0,10); };
-  state.tasks = [
-    { id: uid(), title: "Kiểm tra trật tự xây dựng tổ dân phố 5", field: "Trật tự xây dựng & cấp phép",
-      assignee: "Trần Thị B", priority: "Cao", status: "Đang thực hiện", start: d(-5), due: d(3),
-      progress: 40, notes: "Phối hợp với địa chính kiểm tra công trình không phép.", createdAt: new Date().toISOString() },
-    { id: uid(), title: "Tổng hợp báo cáo đất công trên địa bàn phường", field: "Quản lý đất đai",
-      assignee: "Lê Văn C", priority: "Trung bình", status: "Chờ xử lý", start: d(-10), due: d(-2),
-      progress: 70, notes: "Đang chờ số liệu từ các tổ dân phố.", createdAt: new Date().toISOString() },
-    { id: uid(), title: "Rà soát tiến độ dự án đầu tư công năm 2026", field: "Dự án đầu tư",
-      assignee: "Nguyễn Văn A", priority: "Khẩn", status: "Đang thực hiện", start: d(-3), due: d(1),
-      progress: 55, notes: "", createdAt: new Date().toISOString() },
-    { id: uid(), title: "Cập nhật chương trình mục tiêu quốc gia NTM", field: "Chương trình MTQG",
-      assignee: "", priority: "Trung bình", status: "Chưa bắt đầu", start: "", due: d(20),
-      progress: 0, notes: "", createdAt: new Date().toISOString() },
-  ];
-  save();
+/* ============================================================
+   DỮ LIỆU MẶC ĐỊNH: 19 cán bộ + phân công nhiệm vụ
+   (Theo QĐ phân công nhiệm vụ Phòng KTHT&ĐT ngày 09/3/2026)
+   Hiển thị sẵn khi mở web; người dùng có thể sửa/thêm và sẽ được lưu lại.
+   ============================================================ */
+const BUILTIN_DATA = {
+  staff: [
+    { id: "s01", name: "Trần Đại Trí", role: "Trưởng phòng", area: "Phụ trách chung; Tài chính, Kế hoạch - Đầu tư, Nông nghiệp - Môi trường" },
+    { id: "s02", name: "Trần Mạnh Trường", role: "Phó Trưởng phòng", area: "Xây dựng - Công thương; đô thị, hạ tầng kỹ thuật" },
+    { id: "s03", name: "Nguyễn Hữu Thịnh", role: "Phó Trưởng phòng", area: "Nông nghiệp - Môi trường; Tài chính - Kế hoạch" },
+    { id: "s04", name: "Trần Thị Qua", role: "Chuyên viên", area: "Doanh nghiệp, HTX, hộ kinh doanh; giá; thủ quỹ, văn thư, lưu trữ" },
+    { id: "s05", name: "Trương Thị Hà Chung", role: "Chuyên viên", area: "Ngân sách (dự toán, quyết toán, kế hoạch tài chính)" },
+    { id: "s06", name: "Đào Thị Yến Nhi", role: "Chuyên viên", area: "Quản lý đầu tư phát triển; thống kê; tài sản công" },
+    { id: "s07", name: "Dương Thế Đức", role: "Chuyên viên", area: "Đầu tư công; đấu thầu; thẩm định dự án" },
+    { id: "s08", name: "Đỗ Thị Hoa", role: "Chuyên viên", area: "Kế toán chi; quyết toán vốn đầu tư công" },
+    { id: "s09", name: "Lê Thị Bích", role: "Chuyên viên", area: "Kế toán thu; phí, lệ phí; chi tiêu nội bộ" },
+    { id: "s10", name: "Nguyễn Thị Phương Thảo", role: "Chuyên viên", area: "Công thương; giảm nghèo" },
+    { id: "s11", name: "Đào Quang Thạch", role: "Chuyên viên", area: "Cấp phép xây dựng (Đống Đa cũ); dịch vụ công ích" },
+    { id: "s12", name: "Lê Văn Thịnh", role: "Chuyên viên", area: "Cấp phép xây dựng (Yên Thế cũ)" },
+    { id: "s13", name: "Phạm Lê Thi", role: "Chuyên viên", area: "Cấp phép xây dựng (Thống Nhất cũ)" },
+    { id: "s14", name: "Lê Hương Lý", role: "Chuyên viên", area: "Đất đai (Đống Đa cũ)" },
+    { id: "s15", name: "Nguyễn Thị Mỹ Oanh", role: "Chuyên viên", area: "Đất đai (Thống Nhất cũ)" },
+    { id: "s16", name: "Lại Thị Luyến", role: "Chuyên viên", area: "Đất đai (tổ 2,3,4,5,6,10 Yên Thế cũ)" },
+    { id: "s17", name: "Nguyễn Thái Nguyên", role: "Chuyên viên", area: "Đất đai (tổ 1,7,8,9, làng Brukngol Yên Thế cũ)" },
+    { id: "s18", name: "Nguyễn Bá Trường", role: "Chuyên viên", area: "Nông nghiệp - Môi trường; tổng hợp đơn thư; CTMTQG giảm nghèo" },
+    { id: "s19", name: "Lê Văn Toàn", role: "Người hoạt động không chuyên trách", area: "Chăn nuôi và Thú y" }
+  ],
+  tasks: [
+    { id: "t01", title: "Chỉ đạo, điều hành chung công việc của Phòng", field: "Công tác Đảng - nội bộ phòng", assignee: "Trần Đại Trí", priority: "Cao", status: "Đang thực hiện", start: "2026-03-09", due: "", progress: 0, notes: "Chủ tài khoản thứ nhất; phụ trách Tài chính, Kế hoạch - Đầu tư, Nông nghiệp - Môi trường; công tác cán bộ, chế độ chính sách, CCHC, PCTN, thi đua khen thưởng - kỷ luật, giải quyết KNTC; tiếp công dân định kỳ. Theo QĐ phân công nhiệm vụ ngày 09/3/2026.", createdAt: "2026-03-09T00:00:00.000Z" },
+    { id: "t02", title: "Phụ trách lĩnh vực Xây dựng - Công thương", field: "Quy hoạch & đô thị", assignee: "Trần Mạnh Trường", priority: "Cao", status: "Đang thực hiện", start: "2026-03-09", due: "", progress: 0, notes: "Quy hoạch xây dựng, kiến trúc; đầu tư xây dựng; phát triển đô thị; hạ tầng kỹ thuật đô thị (cấp/thoát nước, chiếu sáng, cây xanh, nghĩa trang, hạ tầng ngầm); nhà ở; công sở; vật liệu xây dựng; giao thông; công nghiệp, tiểu thủ CN, thương mại. Chủ tài khoản thứ 2. Theo QĐ ngày 09/3/2026.", createdAt: "2026-03-09T00:00:00.000Z" },
+    { id: "t03", title: "Phụ trách Nông nghiệp - Môi trường, Tài chính - Kế hoạch", field: "Môi trường", assignee: "Nguyễn Hữu Thịnh", priority: "Cao", status: "Đang thực hiện", start: "2026-03-09", due: "", progress: 0, notes: "QLNN đất đai (Thống Nhất cũ), tài nguyên nước, khoáng sản, môi trường, nông/lâm/thủy sản, thủy lợi, PCTT - CNCH, giảm nghèo, ATTP nông lâm thủy sản; nhiệm vụ Tài chính - Kế hoạch (khoản 9-12,14,15 Điều 4 TT57/2025). Theo QĐ ngày 09/3/2026.", createdAt: "2026-03-09T00:00:00.000Z" },
+    { id: "t04", title: "Doanh nghiệp, HTX, hộ kinh doanh; quản lý giá; thủ quỹ - văn thư", field: "Kinh tế - ngân sách", assignee: "Trần Thị Qua", priority: "Trung bình", status: "Đang thực hiện", start: "2026-03-09", due: "", progress: 0, notes: "Đăng ký tổ hợp tác, HTX, hộ kinh doanh; quản lý nhà nước về giá, bình ổn giá; thủ quỹ, văn thư, lưu trữ, con dấu, tài liệu mật; tiếp nhận hồ sơ một cửa lĩnh vực kinh doanh, công thương (khoản 10,12 Điều 4 TT57/2025). Theo QĐ ngày 09/3/2026.", createdAt: "2026-03-09T00:00:00.000Z" },
+    { id: "t05", title: "Dự toán, phân bổ và quyết toán ngân sách cấp xã", field: "Kinh tế - ngân sách", assignee: "Trương Thị Hà Chung", priority: "Trung bình", status: "Đang thực hiện", start: "2026-03-09", due: "", progress: 0, notes: "Hướng dẫn xây dựng dự toán; đầu mối lập dự toán, phương án phân bổ, điều chỉnh ngân sách; cấp phát, thanh toán, thẩm định quyết toán; quản lý tài chính - ngân sách - giá (khoản 3,4,5,15,16,17,19,20 Điều 4 TT57/2025). Theo QĐ ngày 09/3/2026.", createdAt: "2026-03-09T00:00:00.000Z" },
+    { id: "t06", title: "Quản lý đầu tư phát triển, thống kê, tài sản công", field: "Dự án đầu tư", assignee: "Đào Thị Yến Nhi", priority: "Trung bình", status: "Đang thực hiện", start: "2026-03-09", due: "", progress: 0, notes: "Lập, theo dõi kế hoạch đầu tư công trung hạn và hằng năm; giám sát, đánh giá, giải ngân vốn đầu tư công; công tác thống kê; quản lý tài sản công (khoản 9,11,18 Điều 4 TT57/2025). Theo QĐ ngày 09/3/2026.", createdAt: "2026-03-09T00:00:00.000Z" },
+    { id: "t07", title: "Đầu tư công, đấu thầu, thẩm định dự án", field: "Dự án đầu tư", assignee: "Dương Thế Đức", priority: "Trung bình", status: "Đang thực hiện", start: "2026-03-09", due: "", progress: 0, notes: "Tham mưu kế hoạch đầu tư công; thẩm tra quyết toán vốn đầu tư hoàn thành; thẩm định chủ trương đầu tư; quản lý đấu thầu; thẩm định dự án đầu tư công và ngoài đầu tư công (khoản 6,7,8,13 Điều 4 TT57/2025; QĐ 51/2025/QĐ-UBND). Theo QĐ ngày 09/3/2026.", createdAt: "2026-03-09T00:00:00.000Z" },
+    { id: "t08", title: "Kế toán chi; quyết toán vốn đầu tư công", field: "Kinh tế - ngân sách", assignee: "Đỗ Thị Hoa", priority: "Trung bình", status: "Đang thực hiện", start: "2026-03-09", due: "", progress: 0, notes: "Thực hiện kế toán chi của Phòng; tổng hợp, báo cáo quyết toán vốn đầu tư công nguồn NSNN; phối hợp Kho bạc thu hồi vốn thanh toán thừa. Theo QĐ ngày 09/3/2026.", createdAt: "2026-03-09T00:00:00.000Z" },
+    { id: "t09", title: "Kế toán thu; phí, lệ phí; chi tiêu nội bộ", field: "Kinh tế - ngân sách", assignee: "Lê Thị Bích", priority: "Trung bình", status: "Đang thực hiện", start: "2026-03-09", due: "", progress: 0, notes: "Phối hợp quản lý thu NSNN; kế toán thu phí, lệ phí và khoản thu hợp pháp khác; xây dựng quy chế chi tiêu nội bộ; quản lý vật tư, văn phòng phẩm (khoản 14 TT57/2025). Theo QĐ ngày 09/3/2026.", createdAt: "2026-03-09T00:00:00.000Z" },
+    { id: "t10", title: "Quản lý nhà nước lĩnh vực Công thương; công tác giảm nghèo", field: "Công thương", assignee: "Nguyễn Thị Phương Thảo", priority: "Trung bình", status: "Đang thực hiện", start: "2026-03-09", due: "", progress: 0, notes: "QLNN công thương theo Điều 6 TT37/2025/TT-BCT: công nghiệp, tiểu thủ CN, thương mại, cụm CN, khuyến công, bảo vệ quyền lợi người tiêu dùng, ATTP, giá điện; thực hiện công tác giảm nghèo; tiếp nhận hồ sơ một cửa. Theo QĐ ngày 09/3/2026.", createdAt: "2026-03-09T00:00:00.000Z" },
+    { id: "t11", title: "Cấp giấy phép xây dựng - địa bàn Đống Đa (cũ)", field: "Trật tự xây dựng & cấp phép", assignee: "Đào Quang Thạch", priority: "Trung bình", status: "Đang thực hiện", start: "2026-03-09", due: "", progress: 0, notes: "Cấp giấy phép xây dựng địa bàn phường Đống Đa cũ (khoản 17,18 Điều 7 TT10/2025/TT-BXD); theo dõi lĩnh vực dịch vụ công ích; tiếp nhận hồ sơ một cửa. Theo QĐ ngày 09/3/2026.", createdAt: "2026-03-09T00:00:00.000Z" },
+    { id: "t12", title: "Cấp giấy phép xây dựng - địa bàn Yên Thế (cũ)", field: "Trật tự xây dựng & cấp phép", assignee: "Lê Văn Thịnh", priority: "Trung bình", status: "Đang thực hiện", start: "2026-03-09", due: "", progress: 0, notes: "Cấp giấy phép xây dựng địa bàn phường Yên Thế cũ (khoản 4,5,6,7,8,10,11,12,18,19,22 Điều 7 TT10/2025/TT-BXD); tiếp nhận hồ sơ một cửa. Theo QĐ ngày 09/3/2026.", createdAt: "2026-03-09T00:00:00.000Z" },
+    { id: "t13", title: "Cấp giấy phép xây dựng - địa bàn Thống Nhất (cũ)", field: "Trật tự xây dựng & cấp phép", assignee: "Phạm Lê Thi", priority: "Trung bình", status: "Đang thực hiện", start: "2026-03-09", due: "", progress: 0, notes: "Cấp giấy phép xây dựng địa bàn phường Thống Nhất cũ (khoản 9,13,14,15,16 Điều 7 TT10/2025/TT-BXD); tiếp nhận hồ sơ một cửa. Theo QĐ ngày 09/3/2026.", createdAt: "2026-03-09T00:00:00.000Z" },
+    { id: "t14", title: "Quản lý đất đai - địa bàn Đống Đa (cũ)", field: "Quản lý đất đai", assignee: "Lê Hương Lý", priority: "Trung bình", status: "Đang thực hiện", start: "2026-03-09", due: "", progress: 0, notes: "Tham mưu nhiệm vụ đất đai địa bàn phường Đống Đa cũ (khoản 10 Điều 4 TT19/TT-BNNMT); tiếp nhận hồ sơ một cửa; phối hợp hỗ trợ giải quyết hồ sơ đất đai đúng tiến độ. Theo QĐ ngày 09/3/2026.", createdAt: "2026-03-09T00:00:00.000Z" },
+    { id: "t15", title: "Quản lý đất đai - địa bàn Thống Nhất (cũ)", field: "Quản lý đất đai", assignee: "Nguyễn Thị Mỹ Oanh", priority: "Trung bình", status: "Đang thực hiện", start: "2026-03-09", due: "", progress: 0, notes: "Tham mưu nhiệm vụ đất đai địa bàn phường Thống Nhất cũ (khoản 10 Điều 4 TT19/TT-BNNMT); tiếp nhận hồ sơ một cửa. Theo QĐ ngày 09/3/2026.", createdAt: "2026-03-09T00:00:00.000Z" },
+    { id: "t16", title: "Quản lý đất đai - tổ 2,3,4,5,6,10 Yên Thế (cũ)", field: "Quản lý đất đai", assignee: "Lại Thị Luyến", priority: "Trung bình", status: "Đang thực hiện", start: "2026-03-09", due: "", progress: 0, notes: "Tham mưu nhiệm vụ đất đai địa bàn tổ 2,3,4,5,6,10 phường Yên Thế cũ (khoản 10 Điều 4 TT19/TT-BNNMT); tiếp nhận hồ sơ một cửa. Theo QĐ ngày 09/3/2026.", createdAt: "2026-03-09T00:00:00.000Z" },
+    { id: "t17", title: "Quản lý đất đai - tổ 1,7,8,9, làng Brukngol Yên Thế (cũ)", field: "Quản lý đất đai", assignee: "Nguyễn Thái Nguyên", priority: "Trung bình", status: "Đang thực hiện", start: "2026-03-09", due: "", progress: 0, notes: "Tham mưu nhiệm vụ đất đai địa bàn tổ 1,7,8,9 và làng Brukngol phường Yên Thế cũ (khoản 10 Điều 4 TT19/TT-BNNMT); tiếp nhận hồ sơ một cửa. Theo QĐ ngày 09/3/2026.", createdAt: "2026-03-09T00:00:00.000Z" },
+    { id: "t18", title: "Nông nghiệp - Môi trường; tổng hợp đơn thư; CTMTQG giảm nghèo", field: "Môi trường", assignee: "Nguyễn Bá Trường", priority: "Trung bình", status: "Đang thực hiện", start: "2026-03-09", due: "", progress: 0, notes: "Tham mưu nhiệm vụ Điều 4 TT19/TT-BNNMT (trừ khoản 10,17,23,26,27,28,29); tổng hợp đơn thư, kiến nghị, khiếu nại các lĩnh vực Phòng phụ trách; Chương trình MTQG giảm nghèo bền vững. Theo QĐ ngày 09/3/2026.", createdAt: "2026-03-09T00:00:00.000Z" },
+    { id: "t19", title: "Lĩnh vực Chăn nuôi và Thú y", field: "Nông nghiệp", assignee: "Lê Văn Toàn", priority: "Trung bình", status: "Đang thực hiện", start: "2026-03-09", due: "", progress: 0, notes: "Người hoạt động không chuyên trách; tham mưu thực hiện nhiệm vụ lĩnh vực chăn nuôi và thú y. Theo QĐ ngày 09/3/2026.", createdAt: "2026-03-09T00:00:00.000Z" }
+  ]
+};
+
+// Nạp dữ liệu mặc định một lần (ghi đè dữ liệu mẫu cũ nếu có); sau đó người dùng tự quản lý.
+const SEED_FLAG = "ktht_seed_official_v1";
+function bootstrapData() {
+  if (!localStorage.getItem(SEED_FLAG)) {
+    state = JSON.parse(JSON.stringify(BUILTIN_DATA));
+    save();
+    localStorage.setItem(SEED_FLAG, "1");
+  } else if (!state.tasks.length && !state.staff.length) {
+    state = JSON.parse(JSON.stringify(BUILTIN_DATA));
+    save();
+  }
 }
 
-seedIfEmpty();
+bootstrapData();
 renderAll();
