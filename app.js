@@ -15,6 +15,8 @@ const FIELDS = [
   "Chương trình MTQG",
   "Phát triển nhà ở",
   "Kinh tế - ngân sách",
+  "Công thương",
+  "Nông nghiệp",
   "Môi trường",
   "Giao thông - hạ tầng",
   "Công tác Đảng - nội bộ phòng",
