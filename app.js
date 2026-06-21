@@ -495,25 +495,65 @@ function mapPriority(v) {
 document.getElementById("btn-import-vb").addEventListener("click", () =>
   document.getElementById("vb-file-input").click());
 
+// Bộ đọc CSV thuần (không cần thư viện) — hỗ trợ dấu , ; tab và ô có dấu ngoặc kép
+function parseCSVText(text) {
+  text = text.replace(/^﻿/, "");
+  const nl = text.indexOf("\n");
+  const firstLine = nl >= 0 ? text.slice(0, nl) : text;
+  const cnt = ch => (firstLine.match(new RegExp("\\" + ch, "g")) || []).length;
+  let delim = ",";
+  if (cnt(";") > cnt(",")) delim = ";";
+  else if ((firstLine.match(/\t/g) || []).length > cnt(",")) delim = "\t";
+  const rows = []; let row = [], cur = "", q = false;
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i];
+    if (q) {
+      if (ch === '"') { if (text[i + 1] === '"') { cur += '"'; i++; } else q = false; }
+      else cur += ch;
+    } else if (ch === '"') q = true;
+    else if (ch === delim) { row.push(cur); cur = ""; }
+    else if (ch === "\n") { row.push(cur); rows.push(row); row = []; cur = ""; }
+    else if (ch !== "\r") cur += ch;
+  }
+  if (cur !== "" || row.length) { row.push(cur); rows.push(row); }
+  return rows;
+}
+
 document.getElementById("vb-file-input").addEventListener("change", e => {
   const file = e.target.files[0]; if (!file) return;
-  if (!window.XLSX) { alert("Chưa tải được thư viện đọc Excel. Vui lòng kiểm tra kết nối mạng rồi thử lại."); return; }
   const reader = new FileReader();
   reader.onload = () => {
-    try {
-      const wb = XLSX.read(new Uint8Array(reader.result), { type: "array", cellDates: true });
-      const ws = wb.Sheets[wb.SheetNames[0]];
-      const aoa = XLSX.utils.sheet_to_json(ws, { header: 1, raw: true, defval: "" });
-      // Tìm dòng tiêu đề: dòng đầu tiên có >=2 ô chữ
-      let hi = aoa.findIndex(r => r.filter(c => String(c).trim()).length >= 2);
-      if (hi < 0) hi = 0;
-      impHeaders = aoa[hi].map(c => String(c).trim());
-      impRows = aoa.slice(hi + 1).filter(r => r.some(c => String(c).trim() !== ""));
-      if (!impHeaders.length || !impRows.length) { alert("File không có dữ liệu để nhập."); return; }
-      openImportModal();
-    } catch (err) {
-      alert("Không đọc được file: " + err.message);
+    let aoa = null;
+    // 1) Thử đọc bằng SheetJS (xlsx/xls/csv) nếu thư viện sẵn sàng
+    if (window.XLSX) {
+      try {
+        const wb = XLSX.read(new Uint8Array(reader.result), { type: "array", cellDates: true });
+        const ws = wb.Sheets[wb.SheetNames[0]];
+        aoa = XLSX.utils.sheet_to_json(ws, { header: 1, raw: true, defval: "" });
+      } catch (err) { aoa = null; }
     }
+    // 2) Dự phòng: tự đọc dạng văn bản (CSV) — dùng khi không có thư viện hoặc file là .csv
+    if (!aoa || !aoa.length) {
+      try {
+        const text = new TextDecoder("utf-8").decode(reader.result);
+        const csv = parseCSVText(text);
+        if (csv.length) aoa = csv;
+      } catch (err) { /* bỏ qua */ }
+    }
+    if (!aoa || !aoa.length) {
+      alert("Không đọc được dữ liệu từ file. Hãy thử kết xuất lại ở định dạng .xlsx hoặc .csv rồi nhập lại.");
+      e.target.value = ""; return;
+    }
+    // Tìm dòng tiêu đề: dòng đầu tiên có >=2 ô chữ
+    let hi = aoa.findIndex(r => r.filter(c => String(c).trim()).length >= 2);
+    if (hi < 0) hi = 0;
+    impHeaders = (aoa[hi] || []).map(c => String(c).trim());
+    impRows = aoa.slice(hi + 1).filter(r => r.some(c => String(c).trim() !== ""));
+    if (!impHeaders.length || !impRows.length) {
+      alert(`Đọc được ${aoa.length} dòng nhưng không thấy bảng dữ liệu hợp lệ. Hãy kiểm tra file có hàng tiêu đề cột không.`);
+      e.target.value = ""; return;
+    }
+    openImportModal();
     e.target.value = "";
   };
   reader.readAsArrayBuffer(file);
