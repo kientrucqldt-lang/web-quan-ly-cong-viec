@@ -1,0 +1,8 @@
+# OS / editor
+Thumbs.db
+Desktop.ini
+.DS_Store
+*~
+
+# Backup data exports (không đẩy dữ liệu cục bộ lên repo)
+sao-luu-cong-viec-ktht-*.json

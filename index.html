@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quản lý công việc - Phòng Kinh tế, Hạ tầng và Đô thị phường Thống Nhất</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand">
+      <div class="emblem">★</div>
+      <div class="brand-text">
+        <h1>Quản lý công việc</h1>
+        <p>Phòng Kinh tế, Hạ tầng và Đô thị — Phường Thống Nhất</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button id="btn-export" class="btn btn-ghost" title="Sao lưu dữ liệu ra file">⬇ Xuất file</button>
+      <button id="btn-import" class="btn btn-ghost" title="Khôi phục dữ liệu từ file">⬆ Nhập file</button>
+      <input type="file" id="file-input" accept="application/json" hidden />
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="dashboard">📊 Tổng quan</button>
+    <button class="tab" data-tab="tasks">📋 Đầu việc</button>
+    <button class="tab" data-tab="calendar">📅 Lịch &amp; hạn</button>
+    <button class="tab" data-tab="staff">👥 Cán bộ</button>
+  </nav>
+
+  <main class="content">
+    <!-- ===== TỔNG QUAN ===== -->
+    <section id="dashboard" class="panel active">
+      <div class="stat-grid" id="stat-grid"></div>
+      <div class="dash-row">
+        <div class="card">
+          <h3>Tiến độ theo lĩnh vực</h3>
+          <div id="chart-field"></div>
+        </div>
+        <div class="card">
+          <h3>Trạng thái công việc</h3>
+          <div id="chart-status"></div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>⚠️ Việc sắp đến hạn &amp; quá hạn</h3>
+        <div id="dash-due"></div>
+      </div>
+    </section>
+
+    <!-- ===== ĐẦU VIỆC ===== -->
+    <section id="tasks" class="panel">
+      <div class="toolbar">
+        <button id="btn-add-task" class="btn btn-primary">＋ Thêm đầu việc</button>
+        <input type="search" id="search-task" class="input" placeholder="Tìm theo tên việc..." />
+        <select id="filter-field" class="input"><option value="">Tất cả lĩnh vực</option></select>
+        <select id="filter-status" class="input">
+          <option value="">Tất cả trạng thái</option>
+          <option>Chưa bắt đầu</option>
+          <option>Đang thực hiện</option>
+          <option>Chờ xử lý</option>
+          <option>Hoàn thành</option>
+        </select>
+        <select id="filter-assignee" class="input"><option value="">Tất cả cán bộ</option></select>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table" id="task-table">
+          <thead>
+            <tr>
+              <th>Tên công việc</th>
+              <th>Lĩnh vực</th>
+              <th>Phụ trách</th>
+              <th>Ưu tiên</th>
+              <th>Hạn xử lý</th>
+              <th>Tiến độ</th>
+              <th>Trạng thái</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="task-tbody"></tbody>
+        </table>
+        <div id="task-empty" class="empty">Chưa có đầu việc nào. Bấm “＋ Thêm đầu việc” để bắt đầu.</div>
+      </div>
+    </section>
+
+    <!-- ===== LỊCH & HẠN ===== -->
+    <section id="calendar" class="panel">
+      <div class="cal-columns">
+        <div class="card cal-col cal-overdue">
+          <h3>🔴 Quá hạn</h3>
+          <div id="cal-overdue"></div>
+        </div>
+        <div class="card cal-col cal-soon">
+          <h3>🟡 Trong 7 ngày tới</h3>
+          <div id="cal-soon"></div>
+        </div>
+        <div class="card cal-col cal-later">
+          <h3>🟢 Sau 7 ngày</h3>
+          <div id="cal-later"></div>
+        </div>
+        <div class="card cal-col cal-none">
+          <h3>⚪ Chưa đặt hạn</h3>
+          <div id="cal-none"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CÁN BỘ ===== -->
+    <section id="staff" class="panel">
+      <div class="toolbar">
+        <button id="btn-add-staff" class="btn btn-primary">＋ Thêm cán bộ</button>
+      </div>
+      <div id="staff-grid" class="staff-grid"></div>
+    </section>
+  </main>
+
+  <!-- ===== MODAL CÔNG VIỆC ===== -->
+  <div class="modal-overlay" id="task-modal" hidden>
+    <div class="modal">
+      <h2 id="task-modal-title">Thêm đầu việc</h2>
+      <form id="task-form">
+        <input type="hidden" id="task-id" />
+        <label>Tên công việc <span class="req">*</span>
+          <input type="text" id="task-title" class="input" required />
+        </label>
+        <div class="form-row">
+          <label>Lĩnh vực
+            <select id="task-field" class="input"></select>
+          </label>
+          <label>Cán bộ phụ trách
+            <select id="task-assignee" class="input"></select>
+          </label>
+        </div>
+        <div class="form-row">
+          <label>Mức ưu tiên
+            <select id="task-priority" class="input">
+              <option>Thấp</option>
+              <option selected>Trung bình</option>
+              <option>Cao</option>
+              <option>Khẩn</option>
+            </select>
+          </label>
+          <label>Trạng thái
+            <select id="task-status" class="input">
+              <option selected>Chưa bắt đầu</option>
+              <option>Đang thực hiện</option>
+              <option>Chờ xử lý</option>
+              <option>Hoàn thành</option>
+            </select>
+          </label>
+        </div>
+        <div class="form-row">
+          <label>Ngày bắt đầu
+            <input type="date" id="task-start" class="input" />
+          </label>
+          <label>Hạn xử lý
+            <input type="date" id="task-due" class="input" />
+          </label>
+        </div>
+        <label>Tiến độ: <span id="progress-val">0</span>%
+          <input type="range" id="task-progress" min="0" max="100" step="5" value="0" />
+        </label>
+        <label>Nội dung / ghi chú
+          <textarea id="task-notes" class="input" rows="3"></textarea>
+        </label>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-ghost" data-close>Hủy</button>
+          <button type="submit" class="btn btn-primary">Lưu</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===== MODAL CÁN BỘ ===== -->
+  <div class="modal-overlay" id="staff-modal" hidden>
+    <div class="modal">
+      <h2 id="staff-modal-title">Thêm cán bộ</h2>
+      <form id="staff-form">
+        <input type="hidden" id="staff-id" />
+        <label>Họ và tên <span class="req">*</span>
+          <input type="text" id="staff-name" class="input" required />
+        </label>
+        <label>Chức vụ
+          <input type="text" id="staff-role" class="input" placeholder="VD: Chuyên viên, Phó Trưởng phòng..." />
+        </label>
+        <label>Lĩnh vực phụ trách
+          <input type="text" id="staff-area" class="input" placeholder="VD: Trật tự xây dựng, Đất đai..." />
+        </label>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-ghost" data-close>Hủy</button>
+          <button type="submit" class="btn btn-primary">Lưu</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer class="app-footer">
+    Dữ liệu được lưu trên trình duyệt của bạn. Nhớ <strong>Xuất file</strong> định kỳ để sao lưu.
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
