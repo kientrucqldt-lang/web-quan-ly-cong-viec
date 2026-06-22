@@ -11,3 +11,7 @@ sao-luu-cong-viec-ktht-*.json
 mau-van-ban-den.csv
 van-ban-den*.xlsx
 van-ban-den*.csv
+
+# Du lieu van ban den + script tam (khong cong khai)
+sao-luu-cong-viec-ktht-vbden-*.json
+_gen_*.ps1
