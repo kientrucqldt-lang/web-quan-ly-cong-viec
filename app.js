@@ -122,7 +122,7 @@ taskForm.addEventListener("submit", e => {
     const t = state.tasks.find(x => x.id === id);
     Object.assign(t, data);
   } else {
-    state.tasks.push({ id: uid(), createdAt: new Date().toISOString(), ...data });
+    state.tasks.push({ id: uid(), createdAt: new Date().toISOString(), source: "manual", ...data });
   }
   save(); closeTaskModal(); renderAll();
 });
@@ -741,5 +741,42 @@ function bootstrapData() {
   }
 }
 
-bootstrapData();
-renderAll();
+/* ============================================================
+   ĐỒNG BỘ TỪ data.json (cập nhật tự động từ Văn bản đến)
+   ============================================================ */
+function showSyncInfo(ts) {
+  let el = document.getElementById("sync-info");
+  if (!el) {
+    el = document.createElement("div");
+    el.id = "sync-info";
+    el.style.cssText = "text-align:center;font-size:12px;color:#15803d;padding:6px;background:#f0fdf4;border-bottom:1px solid #dcfce7";
+    document.querySelector(".tabs").after(el);
+  }
+  el.textContent = ts ? ("🔄 Dữ liệu Văn bản đến tự cập nhật — đồng bộ lúc: " + ts) : "";
+}
+
+async function boot() {
+  try {
+    const res = await fetch("data.json?t=" + Date.now(), { cache: "no-store" });
+    if (res.ok) {
+      const remote = await res.json();
+      if (remote && Array.isArray(remote.tasks)) {
+        // giữ lại các đầu việc người dùng tự thêm tay
+        const manual = (load().tasks || []).filter(t => t.source === "manual");
+        state = {
+          staff: remote.staff || [],
+          tasks: [...remote.tasks, ...manual],
+          syncedAt: remote.syncedAt || ""
+        };
+        save();
+        renderAll();
+        showSyncInfo(remote.syncedAt);
+        return;
+      }
+    }
+  } catch (e) { /* không có data.json -> dùng dữ liệu nhúng/cục bộ */ }
+  bootstrapData();
+  renderAll();
+}
+
+boot();
