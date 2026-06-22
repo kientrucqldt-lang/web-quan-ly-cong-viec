@@ -1,124 +1,124 @@
 {
-    "syncedAt":  "08:31 22/06/2026",
+    "syncedAt":  "08:37 22/06/2026",
     "staff":  [
                   {
-                      "area":  "Phụ trách chung; Tài chính, Kế hoạch - Đầu tư, Nông nghiệp - Môi trường",
-                      "name":  "Trần Đại Trí",
                       "id":  "s01",
-                      "role":  "Trưởng phòng"
+                      "name":  "Trần Đại Trí",
+                      "role":  "Trưởng phòng",
+                      "area":  "Phụ trách chung; Tài chính, Kế hoạch - Đầu tư, Nông nghiệp - Môi trường"
                   },
                   {
-                      "area":  "Xây dựng - Công thương; đô thị, hạ tầng kỹ thuật",
-                      "name":  "Trần Mạnh Trường",
                       "id":  "s02",
-                      "role":  "Phó Trưởng phòng"
+                      "name":  "Trần Mạnh Trường",
+                      "role":  "Phó Trưởng phòng",
+                      "area":  "Xây dựng - Công thương; đô thị, hạ tầng kỹ thuật"
                   },
                   {
-                      "area":  "Nông nghiệp - Môi trường; Tài chính - Kế hoạch",
-                      "name":  "Nguyễn Hữu Thịnh",
                       "id":  "s03",
-                      "role":  "Phó Trưởng phòng"
+                      "name":  "Nguyễn Hữu Thịnh",
+                      "role":  "Phó Trưởng phòng",
+                      "area":  "Nông nghiệp - Môi trường; Tài chính - Kế hoạch"
                   },
                   {
-                      "area":  "Doanh nghiệp, HTX, hộ kinh doanh; giá; thủ quỹ, văn thư, lưu trữ",
-                      "name":  "Trần Thị Qua",
                       "id":  "s04",
-                      "role":  "Chuyên viên"
+                      "name":  "Trần Thị Qua",
+                      "role":  "Chuyên viên",
+                      "area":  "Doanh nghiệp, HTX, hộ kinh doanh; giá; thủ quỹ, văn thư, lưu trữ"
                   },
                   {
-                      "area":  "Ngân sách (dự toán, quyết toán, kế hoạch tài chính)",
-                      "name":  "Trương Thị Hà Chung",
                       "id":  "s05",
-                      "role":  "Chuyên viên"
+                      "name":  "Trương Thị Hà Chung",
+                      "role":  "Chuyên viên",
+                      "area":  "Ngân sách (dự toán, quyết toán, kế hoạch tài chính)"
                   },
                   {
-                      "area":  "Quản lý đầu tư phát triển; thống kê; tài sản công",
-                      "name":  "Đào Thị Yến Nhi",
                       "id":  "s06",
-                      "role":  "Chuyên viên"
+                      "name":  "Đào Thị Yến Nhi",
+                      "role":  "Chuyên viên",
+                      "area":  "Quản lý đầu tư phát triển; thống kê; tài sản công"
                   },
                   {
-                      "area":  "Đầu tư công; đấu thầu; thẩm định dự án",
-                      "name":  "Dương Thế Đức",
                       "id":  "s07",
-                      "role":  "Chuyên viên"
+                      "name":  "Dương Thế Đức",
+                      "role":  "Chuyên viên",
+                      "area":  "Đầu tư công; đấu thầu; thẩm định dự án"
                   },
                   {
-                      "area":  "Kế toán chi; quyết toán vốn đầu tư công",
-                      "name":  "Đỗ Thị Hoa",
                       "id":  "s08",
-                      "role":  "Chuyên viên"
+                      "name":  "Đỗ Thị Hoa",
+                      "role":  "Chuyên viên",
+                      "area":  "Kế toán chi; quyết toán vốn đầu tư công"
                   },
                   {
-                      "area":  "Kế toán thu; phí, lệ phí; chi tiêu nội bộ",
-                      "name":  "Lê Thị Bích",
                       "id":  "s09",
-                      "role":  "Chuyên viên"
+                      "name":  "Lê Thị Bích",
+                      "role":  "Chuyên viên",
+                      "area":  "Kế toán thu; phí, lệ phí; chi tiêu nội bộ"
                   },
                   {
-                      "area":  "Công thương; giảm nghèo",
-                      "name":  "Nguyễn Thị Phương Thảo",
                       "id":  "s10",
-                      "role":  "Chuyên viên"
+                      "name":  "Nguyễn Thị Phương Thảo",
+                      "role":  "Chuyên viên",
+                      "area":  "Công thương; giảm nghèo"
                   },
                   {
-                      "area":  "Cấp phép xây dựng (Đống Đa cũ); dịch vụ công ích",
-                      "name":  "Đào Quang Thạch",
                       "id":  "s11",
-                      "role":  "Chuyên viên"
+                      "name":  "Đào Quang Thạch",
+                      "role":  "Chuyên viên",
+                      "area":  "Cấp phép xây dựng (Đống Đa cũ); dịch vụ công ích"
                   },
                   {
-                      "area":  "Cấp phép xây dựng (Yên Thế cũ)",
-                      "name":  "Lê Văn Thịnh",
                       "id":  "s12",
-                      "role":  "Chuyên viên"
+                      "name":  "Lê Văn Thịnh",
+                      "role":  "Chuyên viên",
+                      "area":  "Cấp phép xây dựng (Yên Thế cũ)"
                   },
                   {
-                      "area":  "Cấp phép xây dựng (Thống Nhất cũ)",
-                      "name":  "Phạm Lê Thi",
                       "id":  "s13",
-                      "role":  "Chuyên viên"
+                      "name":  "Phạm Lê Thi",
+                      "role":  "Chuyên viên",
+                      "area":  "Cấp phép xây dựng (Thống Nhất cũ)"
                   },
                   {
-                      "area":  "Đất đai (Đống Đa cũ)",
-                      "name":  "Lê Hương Lý",
                       "id":  "s14",
-                      "role":  "Chuyên viên"
+                      "name":  "Lê Hương Lý",
+                      "role":  "Chuyên viên",
+                      "area":  "Đất đai (Đống Đa cũ)"
                   },
                   {
-                      "area":  "Đất đai (Thống Nhất cũ)",
-                      "name":  "Nguyễn Thị Mỹ Oanh",
                       "id":  "s15",
-                      "role":  "Chuyên viên"
+                      "name":  "Nguyễn Thị Mỹ Oanh",
+                      "role":  "Chuyên viên",
+                      "area":  "Đất đai (Thống Nhất cũ)"
                   },
                   {
-                      "area":  "Đất đai (tổ 2,3,4,5,6,10 Yên Thế cũ)",
-                      "name":  "Lại Thị Luyến",
                       "id":  "s16",
-                      "role":  "Chuyên viên"
+                      "name":  "Lại Thị Luyến",
+                      "role":  "Chuyên viên",
+                      "area":  "Đất đai (tổ 2,3,4,5,6,10 Yên Thế cũ)"
                   },
                   {
-                      "area":  "Đất đai (tổ 1,7,8,9, làng Brukngol Yên Thế cũ)",
-                      "name":  "Nguyễn Thái Nguyên",
                       "id":  "s17",
-                      "role":  "Chuyên viên"
+                      "name":  "Nguyễn Thái Nguyên",
+                      "role":  "Chuyên viên",
+                      "area":  "Đất đai (tổ 1,7,8,9, làng Brukngol Yên Thế cũ)"
                   },
                   {
-                      "area":  "Nông nghiệp - Môi trường; tổng hợp đơn thư; CTMTQG giảm nghèo",
-                      "name":  "Nguyễn Bá Trường",
                       "id":  "s18",
-                      "role":  "Chuyên viên"
+                      "name":  "Nguyễn Bá Trường",
+                      "role":  "Chuyên viên",
+                      "area":  "Nông nghiệp - Môi trường; tổng hợp đơn thư; CTMTQG giảm nghèo"
                   },
                   {
-                      "area":  "Chăn nuôi và Thú y",
-                      "name":  "Lê Văn Toàn",
                       "id":  "s19",
-                      "role":  "Người hoạt động không chuyên trách"
+                      "name":  "Lê Văn Toàn",
+                      "role":  "Người hoạt động không chuyên trách",
+                      "area":  "Chăn nuôi và Thú y"
                   }
               ],
     "tasks":  [
                   {
-                      "id":  "v001",
+                      "id":  "v_423_BC_SNNMT_thinhnh",
                       "title":  "Báo cáo thực hiện Quy chế phối hợp quản lý hoạt động khoáng sản quý II/2026",
                       "field":  "Môi trường",
                       "assignee":  "Nguyễn Hữu Thịnh",
@@ -127,14 +127,14 @@
                       "start":  "2026-06-19",
                       "due":  "",
                       "progress":  0,
-                      "notes":  "Số KH: 423/BC-SNNMT - CQ ban hành: Sở Nông nghiệp và Môi trường - Luồng chuyển: tritd -\u003e thinhnh. Nguồn: Văn bản đến tháng 6/2026.",
+                      "notes":  "So KH: 423/BC-SNNMT - CQ: Sở Nông nghiệp và Môi trường - Luong chuyen: tritd -\u003e thinhnh. Nguon: Van ban den.",
                       "docSymbol":  "423/BC-SNNMT",
                       "docAgency":  "Sở Nông nghiệp và Môi trường",
                       "source":  "vbden",
                       "createdAt":  "2026-06-19T00:00:00.000Z"
                   },
                   {
-                      "id":  "v002",
+                      "id":  "v_600_BC_STC_truongtm",
                       "title":  "Báo cáo tình hình triển khai các dự án đầu tư ngoài ngân sách tháng 6/2026",
                       "field":  "Dự án đầu tư",
                       "assignee":  "Trần Mạnh Trường",
@@ -143,14 +143,14 @@
                       "start":  "2026-06-19",
                       "due":  "",
                       "progress":  0,
-                      "notes":  "Số KH: 600/BC-STC - CQ ban hành: Sở Tài chính - Luồng chuyển: tritd -\u003e truongtm. Nguồn: Văn bản đến tháng 6/2026.",
+                      "notes":  "So KH: 600/BC-STC - CQ: Sở Tài chính - Luong chuyen: tritd -\u003e truongtm. Nguon: Van ban den.",
                       "docSymbol":  "600/BC-STC",
                       "docAgency":  "Sở Tài chính",
                       "source":  "vbden",
                       "createdAt":  "2026-06-19T00:00:00.000Z"
                   },
                   {
-                      "id":  "v003",
+                      "id":  "v_600_BC_STC_thinhnh",
                       "title":  "Báo cáo tình hình triển khai các dự án đầu tư ngoài ngân sách tháng 6/2026",
                       "field":  "Dự án đầu tư",
                       "assignee":  "Nguyễn Hữu Thịnh",
@@ -159,14 +159,14 @@
                       "start":  "2026-06-19",
                       "due":  "",
                       "progress":  0,
-                      "notes":  "Số KH: 600/BC-STC - CQ ban hành: Sở Tài chính - Luồng chuyển: tritd -\u003e thinhnh. Nguồn: Văn bản đến tháng 6/2026.",
+                      "notes":  "So KH: 600/BC-STC - CQ: Sở Tài chính - Luong chuyen: tritd -\u003e thinhnh. Nguon: Van ban den.",
                       "docSymbol":  "600/BC-STC",
                       "docAgency":  "Sở Tài chính",
                       "source":  "vbden",
                       "createdAt":  "2026-06-19T00:00:00.000Z"
                   },
                   {
-                      "id":  "v004",
+                      "id":  "v_77_2026_NQ_H_ND_thinhnh",
                       "title":  "Nghị quyết chính sách hỗ trợ người sử dụng dịch vụ hỏa táng",
                       "field":  "Quy hoạch \u0026 đô thị",
                       "assignee":  "Nguyễn Hữu Thịnh",
@@ -175,14 +175,14 @@
                       "start":  "2026-06-15",
                       "due":  "",
                       "progress":  0,
-                      "notes":  "Số KH: 77/2026/NQ-HĐND - CQ ban hành: HĐND tỉnh Gia Lai - Luồng chuyển: tritd -\u003e thinhnh. Nguồn: Văn bản đến tháng 6/2026.",
+                      "notes":  "So KH: 77/2026/NQ-HĐND - CQ: HĐND tỉnh Gia Lai - Luong chuyen: tritd -\u003e thinhnh. Nguon: Van ban den.",
                       "docSymbol":  "77/2026/NQ-HĐND",
                       "docAgency":  "HĐND tỉnh Gia Lai",
                       "source":  "vbden",
                       "createdAt":  "2026-06-15T00:00:00.000Z"
                   },
                   {
-                      "id":  "v005",
+                      "id":  "v_77_2026_NQ_H_ND_truongtm",
                       "title":  "Nghị quyết chính sách hỗ trợ người sử dụng dịch vụ hỏa táng",
                       "field":  "Quy hoạch \u0026 đô thị",
                       "assignee":  "Trần Mạnh Trường",
@@ -191,14 +191,14 @@
                       "start":  "2026-06-15",
                       "due":  "",
                       "progress":  0,
-                      "notes":  "Số KH: 77/2026/NQ-HĐND - CQ ban hành: HĐND tỉnh Gia Lai - Luồng chuyển: tritd -\u003e truongtm. Nguồn: Văn bản đến tháng 6/2026.",
+                      "notes":  "So KH: 77/2026/NQ-HĐND - CQ: HĐND tỉnh Gia Lai - Luong chuyen: tritd -\u003e truongtm. Nguon: Van ban den.",
                       "docSymbol":  "77/2026/NQ-HĐND",
                       "docAgency":  "HĐND tỉnh Gia Lai",
                       "source":  "vbden",
                       "createdAt":  "2026-06-15T00:00:00.000Z"
                   },
                   {
-                      "id":  "v006",
+                      "id":  "v_1583_UBND_PKTHTDT_phuongthaont",
                       "title":  "Báo cáo tỷ lệ dân số đô thị được cung cấp nước sạch quý II và kế hoạch 6 tháng cuối năm 2026",
                       "field":  "Quy hoạch \u0026 đô thị",
                       "assignee":  "Nguyễn Thị Phương Thảo",
@@ -207,14 +207,14 @@
                       "start":  "2026-06-19",
                       "due":  "",
                       "progress":  0,
-                      "notes":  "Số KH: 1583/UBND-PKTHTDT - CQ ban hành: UBND Phường Thống Nhất - Luồng chuyển: tritd -\u003e phuongthaont. Nguồn: Văn bản đến tháng 6/2026.",
+                      "notes":  "So KH: 1583/UBND-PKTHTDT - CQ: UBND Phường Thống Nhất - Luong chuyen: tritd -\u003e phuongthaont. Nguon: Van ban den.",
                       "docSymbol":  "1583/UBND-PKTHTDT",
                       "docAgency":  "UBND Phường Thống Nhất",
                       "source":  "vbden",
                       "createdAt":  "2026-06-19T00:00:00.000Z"
                   },
                   {
-                      "id":  "v007",
+                      "id":  "v_1583_UBND_PKTHTDT_thachdq",
                       "title":  "Báo cáo tỷ lệ dân số đô thị được cung cấp nước sạch quý II và kế hoạch 6 tháng cuối năm 2026",
                       "field":  "Quy hoạch \u0026 đô thị",
                       "assignee":  "Đào Quang Thạch",
@@ -223,14 +223,14 @@
                       "start":  "2026-06-19",
                       "due":  "",
                       "progress":  0,
-                      "notes":  "Số KH: 1583/UBND-PKTHTDT - CQ ban hành: UBND Phường Thống Nhất - Luồng chuyển: tritd -\u003e thachdq. Nguồn: Văn bản đến tháng 6/2026.",
+                      "notes":  "So KH: 1583/UBND-PKTHTDT - CQ: UBND Phường Thống Nhất - Luong chuyen: tritd -\u003e thachdq. Nguon: Van ban den.",
                       "docSymbol":  "1583/UBND-PKTHTDT",
                       "docAgency":  "UBND Phường Thống Nhất",
                       "source":  "vbden",
                       "createdAt":  "2026-06-19T00:00:00.000Z"
                   },
                   {
-                      "id":  "v008",
+                      "id":  "v_1583_UBND_PKTHTDT_thinhnh",
                       "title":  "Báo cáo tỷ lệ dân số đô thị được cung cấp nước sạch quý II và kế hoạch 6 tháng cuối năm 2026",
                       "field":  "Quy hoạch \u0026 đô thị",
                       "assignee":  "Nguyễn Hữu Thịnh",
@@ -239,14 +239,14 @@
                       "start":  "2026-06-19",
                       "due":  "",
                       "progress":  0,
-                      "notes":  "Số KH: 1583/UBND-PKTHTDT - CQ ban hành: UBND Phường Thống Nhất - Luồng chuyển: tritd -\u003e thinhnh. Nguồn: Văn bản đến tháng 6/2026.",
+                      "notes":  "So KH: 1583/UBND-PKTHTDT - CQ: UBND Phường Thống Nhất - Luong chuyen: tritd -\u003e thinhnh. Nguon: Van ban den.",
                       "docSymbol":  "1583/UBND-PKTHTDT",
                       "docAgency":  "UBND Phường Thống Nhất",
                       "source":  "vbden",
                       "createdAt":  "2026-06-19T00:00:00.000Z"
                   },
                   {
-                      "id":  "v009",
+                      "id":  "v_76_2026_NQ_H_ND_dthoa",
                       "title":  "Nghị quyết bãi bỏ NQ 03/2025 về thẩm quyền phê duyệt nhiệm vụ và dự toán kinh phí chi thường xuyên NSNN",
                       "field":  "Kinh tế - ngân sách",
                       "assignee":  "Đỗ Thị Hoa",
@@ -255,14 +255,14 @@
                       "start":  "2026-06-15",
                       "due":  "",
                       "progress":  0,
-                      "notes":  "Số KH: 76/2026/NQ-HĐND - CQ ban hành: HĐND tỉnh Gia Lai - Luồng chuyển: tritd -\u003e dthoa. Nguồn: Văn bản đến tháng 6/2026.",
+                      "notes":  "So KH: 76/2026/NQ-HĐND - CQ: HĐND tỉnh Gia Lai - Luong chuyen: tritd -\u003e dthoa. Nguon: Van ban den.",
                       "docSymbol":  "76/2026/NQ-HĐND",
                       "docAgency":  "HĐND tỉnh Gia Lai",
                       "source":  "vbden",
                       "createdAt":  "2026-06-15T00:00:00.000Z"
                   },
                   {
-                      "id":  "v010",
+                      "id":  "v_76_2026_NQ_H_ND_truongtm",
                       "title":  "Nghị quyết bãi bỏ NQ 03/2025 về thẩm quyền phê duyệt nhiệm vụ và dự toán kinh phí chi thường xuyên NSNN",
                       "field":  "Kinh tế - ngân sách",
                       "assignee":  "Trần Mạnh Trường",
@@ -271,14 +271,14 @@
                       "start":  "2026-06-15",
                       "due":  "",
                       "progress":  0,
-                      "notes":  "Số KH: 76/2026/NQ-HĐND - CQ ban hành: HĐND tỉnh Gia Lai - Luồng chuyển: tritd -\u003e truongtm. Nguồn: Văn bản đến tháng 6/2026.",
+                      "notes":  "So KH: 76/2026/NQ-HĐND - CQ: HĐND tỉnh Gia Lai - Luong chuyen: tritd -\u003e truongtm. Nguon: Van ban den.",
                       "docSymbol":  "76/2026/NQ-HĐND",
                       "docAgency":  "HĐND tỉnh Gia Lai",
                       "source":  "vbden",
                       "createdAt":  "2026-06-15T00:00:00.000Z"
                   },
                   {
-                      "id":  "v011",
+                      "id":  "v_76_2026_NQ_H_ND_thinhnh",
                       "title":  "Nghị quyết bãi bỏ NQ 03/2025 về thẩm quyền phê duyệt nhiệm vụ và dự toán kinh phí chi thường xuyên NSNN",
                       "field":  "Kinh tế - ngân sách",
                       "assignee":  "Nguyễn Hữu Thịnh",
@@ -287,14 +287,14 @@
                       "start":  "2026-06-15",
                       "due":  "",
                       "progress":  0,
-                      "notes":  "Số KH: 76/2026/NQ-HĐND - CQ ban hành: HĐND tỉnh Gia Lai - Luồng chuyển: tritd -\u003e thinhnh. Nguồn: Văn bản đến tháng 6/2026.",
+                      "notes":  "So KH: 76/2026/NQ-HĐND - CQ: HĐND tỉnh Gia Lai - Luong chuyen: tritd -\u003e thinhnh. Nguon: Van ban den.",
                       "docSymbol":  "76/2026/NQ-HĐND",
                       "docAgency":  "HĐND tỉnh Gia Lai",
                       "source":  "vbden",
                       "createdAt":  "2026-06-15T00:00:00.000Z"
                   },
                   {
-                      "id":  "v012",
+                      "id":  "v_76_2026_NQ_H_ND_nhidty",
                       "title":  "Nghị quyết bãi bỏ NQ 03/2025 về thẩm quyền phê duyệt nhiệm vụ và dự toán kinh phí chi thường xuyên NSNN",
                       "field":  "Kinh tế - ngân sách",
                       "assignee":  "Đào Thị Yến Nhi",
@@ -303,14 +303,14 @@
                       "start":  "2026-06-15",
                       "due":  "",
                       "progress":  0,
-                      "notes":  "Số KH: 76/2026/NQ-HĐND - CQ ban hành: HĐND tỉnh Gia Lai - Luồng chuyển: tritd -\u003e nhidty. Nguồn: Văn bản đến tháng 6/2026.",
+                      "notes":  "So KH: 76/2026/NQ-HĐND - CQ: HĐND tỉnh Gia Lai - Luong chuyen: tritd -\u003e nhidty. Nguon: Van ban den.",
                       "docSymbol":  "76/2026/NQ-HĐND",
                       "docAgency":  "HĐND tỉnh Gia Lai",
                       "source":  "vbden",
                       "createdAt":  "2026-06-15T00:00:00.000Z"
                   },
                   {
-                      "id":  "v013",
+                      "id":  "v_76_2026_NQ_H_ND_ducdt",
                       "title":  "Nghị quyết bãi bỏ NQ 03/2025 về thẩm quyền phê duyệt nhiệm vụ và dự toán kinh phí chi thường xuyên NSNN",
                       "field":  "Kinh tế - ngân sách",
                       "assignee":  "Dương Thế Đức",
@@ -319,14 +319,14 @@
                       "start":  "2026-06-15",
                       "due":  "",
                       "progress":  0,
-                      "notes":  "Số KH: 76/2026/NQ-HĐND - CQ ban hành: HĐND tỉnh Gia Lai - Luồng chuyển: tritd -\u003e ducdt. Nguồn: Văn bản đến tháng 6/2026.",
+                      "notes":  "So KH: 76/2026/NQ-HĐND - CQ: HĐND tỉnh Gia Lai - Luong chuyen: tritd -\u003e ducdt. Nguon: Van ban den.",
                       "docSymbol":  "76/2026/NQ-HĐND",
                       "docAgency":  "HĐND tỉnh Gia Lai",
                       "source":  "vbden",
                       "createdAt":  "2026-06-15T00:00:00.000Z"
                   },
                   {
-                      "id":  "v014",
+                      "id":  "v_76_2026_NQ_H_ND_chungtth",
                       "title":  "Nghị quyết bãi bỏ NQ 03/2025 về thẩm quyền phê duyệt nhiệm vụ và dự toán kinh phí chi thường xuyên NSNN",
                       "field":  "Kinh tế - ngân sách",
                       "assignee":  "Trương Thị Hà Chung",
@@ -335,14 +335,14 @@
                       "start":  "2026-06-15",
                       "due":  "",
                       "progress":  0,
-                      "notes":  "Số KH: 76/2026/NQ-HĐND - CQ ban hành: HĐND tỉnh Gia Lai - Luồng chuyển: tritd -\u003e chungtth. Nguồn: Văn bản đến tháng 6/2026.",
+                      "notes":  "So KH: 76/2026/NQ-HĐND - CQ: HĐND tỉnh Gia Lai - Luong chuyen: tritd -\u003e chungtth. Nguon: Van ban den.",
                       "docSymbol":  "76/2026/NQ-HĐND",
                       "docAgency":  "HĐND tỉnh Gia Lai",
                       "source":  "vbden",
                       "createdAt":  "2026-06-15T00:00:00.000Z"
                   },
                   {
-                      "id":  "v015",
+                      "id":  "v_336_NQ_H_ND_tritd",
                       "title":  "Nghị quyết về Kế hoạch phát triển kinh tế - xã hội 5 năm 2026-2030",
                       "field":  "Kinh tế - ngân sách",
                       "assignee":  "Trần Đại Trí",
@@ -351,14 +351,14 @@
                       "start":  "2026-06-15",
                       "due":  "",
                       "progress":  0,
-                      "notes":  "Số KH: 336/NQ-HĐND - CQ ban hành: HĐND tỉnh Gia Lai - Luồng chuyển: tritd -\u003e tritd. Nguồn: Văn bản đến tháng 6/2026.",
+                      "notes":  "So KH: 336/NQ-HĐND - CQ: HĐND tỉnh Gia Lai - Luong chuyen: tritd -\u003e tritd. Nguon: Van ban den.",
                       "docSymbol":  "336/NQ-HĐND",
                       "docAgency":  "HĐND tỉnh Gia Lai",
                       "source":  "vbden",
                       "createdAt":  "2026-06-15T00:00:00.000Z"
                   },
                   {
-                      "id":  "v016",
+                      "id":  "v_336_NQ_H_ND_thinhnh",
                       "title":  "Nghị quyết về Kế hoạch phát triển kinh tế - xã hội 5 năm 2026-2030",
                       "field":  "Kinh tế - ngân sách",
                       "assignee":  "Nguyễn Hữu Thịnh",
@@ -367,14 +367,14 @@
                       "start":  "2026-06-15",
                       "due":  "",
                       "progress":  0,
-                      "notes":  "Số KH: 336/NQ-HĐND - CQ ban hành: HĐND tỉnh Gia Lai - Luồng chuyển: tritd -\u003e thinhnh. Nguồn: Văn bản đến tháng 6/2026.",
+                      "notes":  "So KH: 336/NQ-HĐND - CQ: HĐND tỉnh Gia Lai - Luong chuyen: tritd -\u003e thinhnh. Nguon: Van ban den.",
                       "docSymbol":  "336/NQ-HĐND",
                       "docAgency":  "HĐND tỉnh Gia Lai",
                       "source":  "vbden",
                       "createdAt":  "2026-06-15T00:00:00.000Z"
                   },
                   {
-                      "id":  "v017",
+                      "id":  "v_336_NQ_H_ND_truongtm",
                       "title":  "Nghị quyết về Kế hoạch phát triển kinh tế - xã hội 5 năm 2026-2030",
                       "field":  "Kinh tế - ngân sách",
                       "assignee":  "Trần Mạnh Trường",
@@ -383,14 +383,14 @@
                       "start":  "2026-06-15",
                       "due":  "",
                       "progress":  0,
-                      "notes":  "Số KH: 336/NQ-HĐND - CQ ban hành: HĐND tỉnh Gia Lai - Luồng chuyển: tritd -\u003e truongtm. Nguồn: Văn bản đến tháng 6/2026.",
+                      "notes":  "So KH: 336/NQ-HĐND - CQ: HĐND tỉnh Gia Lai - Luong chuyen: tritd -\u003e truongtm. Nguon: Van ban den.",
                       "docSymbol":  "336/NQ-HĐND",
                       "docAgency":  "HĐND tỉnh Gia Lai",
                       "source":  "vbden",
                       "createdAt":  "2026-06-15T00:00:00.000Z"
                   },
                   {
-                      "id":  "v018",
+                      "id":  "v_336_NQ_H_ND_phuongthaont",
                       "title":  "Nghị quyết về Kế hoạch phát triển kinh tế - xã hội 5 năm 2026-2030",
                       "field":  "Kinh tế - ngân sách",
                       "assignee":  "Nguyễn Thị Phương Thảo",
@@ -399,14 +399,14 @@
                       "start":  "2026-06-15",
                       "due":  "",
                       "progress":  0,
-                      "notes":  "Số KH: 336/NQ-HĐND - CQ ban hành: HĐND tỉnh Gia Lai - Luồng chuyển: tritd -\u003e phuongthaont. Nguồn: Văn bản đến tháng 6/2026.",
+                      "notes":  "So KH: 336/NQ-HĐND - CQ: HĐND tỉnh Gia Lai - Luong chuyen: tritd -\u003e phuongthaont. Nguon: Van ban den.",
                       "docSymbol":  "336/NQ-HĐND",
                       "docAgency":  "HĐND tỉnh Gia Lai",
                       "source":  "vbden",
                       "createdAt":  "2026-06-15T00:00:00.000Z"
                   },
                   {
-                      "id":  "v019",
+                      "id":  "v_337_NQ_H_ND_chungtth",
                       "title":  "Nghị quyết phê chuẩn quyết toán ngân sách địa phương năm 2025",
                       "field":  "Kinh tế - ngân sách",
                       "assignee":  "Trương Thị Hà Chung",
@@ -415,14 +415,14 @@
                       "start":  "2026-06-15",
                       "due":  "",
                       "progress":  0,
-                      "notes":  "Số KH: 337/NQ-HĐND - CQ ban hành: HĐND tỉnh Gia Lai - Luồng chuyển: tritd -\u003e chungtth. Nguồn: Văn bản đến tháng 6/2026.",
+                      "notes":  "So KH: 337/NQ-HĐND - CQ: HĐND tỉnh Gia Lai - Luong chuyen: tritd -\u003e chungtth. Nguon: Van ban den.",
                       "docSymbol":  "337/NQ-HĐND",
                       "docAgency":  "HĐND tỉnh Gia Lai",
                       "source":  "vbden",
                       "createdAt":  "2026-06-15T00:00:00.000Z"
                   },
                   {
-                      "id":  "v020",
+                      "id":  "v_4978_SXD_QHKT_truongtm",
                       "title":  "Báo cáo đánh giá kết quả thí điểm xây dựng cơ sở dữ liệu về phát triển đô thị",
                       "field":  "Quy hoạch \u0026 đô thị",
                       "assignee":  "Trần Mạnh Trường",
@@ -431,14 +431,14 @@
                       "start":  "2026-06-19",
                       "due":  "",
                       "progress":  0,
-                      "notes":  "Số KH: 4978/SXD-QHKT - CQ ban hành: Sở Xây dựng - Luồng chuyển: tritd -\u003e truongtm. Nguồn: Văn bản đến tháng 6/2026.",
+                      "notes":  "So KH: 4978/SXD-QHKT - CQ: Sở Xây dựng - Luong chuyen: tritd -\u003e truongtm. Nguon: Van ban den.",
                       "docSymbol":  "4978/SXD-QHKT",
                       "docAgency":  "Sở Xây dựng",
                       "source":  "vbden",
                       "createdAt":  "2026-06-19T00:00:00.000Z"
                   },
                   {
-                      "id":  "v021",
+                      "id":  "v_628_PC_UBND_thipl",
                       "title":  "Đề xuất đấu nối vào tuyến Quốc lộ đường Hồ Chí Minh tại Km 1597+350",
                       "field":  "Giao thông - hạ tầng",
                       "assignee":  "Phạm Lê Thi",
@@ -447,14 +447,14 @@
                       "start":  "2026-06-19",
                       "due":  "",
                       "progress":  0,
-                      "notes":  "Số KH: 628/PC-UBND - CQ ban hành: UBND tỉnh Gia Lai - Luồng chuyển: tritd -\u003e thipl. Nguồn: Văn bản đến tháng 6/2026.",
+                      "notes":  "So KH: 628/PC-UBND - CQ: UBND tỉnh Gia Lai - Luong chuyen: tritd -\u003e thipl. Nguon: Van ban den.",
                       "docSymbol":  "628/PC-UBND",
                       "docAgency":  "UBND tỉnh Gia Lai",
                       "source":  "vbden",
                       "createdAt":  "2026-06-19T00:00:00.000Z"
                   },
                   {
-                      "id":  "v022",
+                      "id":  "v_1574_UBND_PVHXH_bc",
                       "title":  "(Quán triệt toàn phòng) Tham gia khóa học trực tuyến AI cơ bản dùng cho Văn phòng",
                       "field":  "Khác",
                       "assignee":  "Trần Đại Trí",
@@ -463,14 +463,14 @@
                       "start":  "2026-06-18",
                       "due":  "",
                       "progress":  0,
-                      "notes":  "Số KH: 1574/UBND-PVHXH - CQ ban hành: UBND Phường Thống Nhất - Văn bản gửi toàn phòng để quán triệt/để biết. Nguồn: Văn bản đến tháng 6/2026.",
+                      "notes":  "So KH: 1574/UBND-PVHXH - CQ: UBND Phường Thống Nhất - VB gui toan phong de quan triet. Nguon: Van ban den.",
                       "docSymbol":  "1574/UBND-PVHXH",
                       "docAgency":  "UBND Phường Thống Nhất",
                       "source":  "vbden",
                       "createdAt":  "2026-06-18T00:00:00.000Z"
                   },
                   {
-                      "id":  "v023",
+                      "id":  "v_387_BC_UBND_luyenlt",
                       "title":  "Đề xuất xử lý đưa ra khỏi quy hoạch các nội dung bất cập, không phù hợp thực tế",
                       "field":  "Quản lý đất đai",
                       "assignee":  "Lại Thị Luyến",
@@ -479,14 +479,14 @@
                       "start":  "2026-06-19",
                       "due":  "",
                       "progress":  0,
-                      "notes":  "Số KH: 387/BC-UBND - CQ ban hành: UBND Phường Thống Nhất - Luồng chuyển: tritd -\u003e luyenlt. Nguồn: Văn bản đến tháng 6/2026.",
+                      "notes":  "So KH: 387/BC-UBND - CQ: UBND Phường Thống Nhất - Luong chuyen: tritd -\u003e luyenlt. Nguon: Van ban den.",
                       "docSymbol":  "387/BC-UBND",
                       "docAgency":  "UBND Phường Thống Nhất",
                       "source":  "vbden",
                       "createdAt":  "2026-06-19T00:00:00.000Z"
                   },
                   {
-                      "id":  "v024",
+                      "id":  "v_387_BC_UBND_truongtm",
                       "title":  "Đề xuất xử lý đưa ra khỏi quy hoạch các nội dung bất cập, không phù hợp thực tế",
                       "field":  "Quản lý đất đai",
                       "assignee":  "Trần Mạnh Trường",
@@ -495,14 +495,14 @@
                       "start":  "2026-06-19",
                       "due":  "",
                       "progress":  0,
-                      "notes":  "Số KH: 387/BC-UBND - CQ ban hành: UBND Phường Thống Nhất - Luồng chuyển: tritd -\u003e truongtm. Nguồn: Văn bản đến tháng 6/2026.",
+                      "notes":  "So KH: 387/BC-UBND - CQ: UBND Phường Thống Nhất - Luong chuyen: tritd -\u003e truongtm. Nguon: Van ban den.",
                       "docSymbol":  "387/BC-UBND",
                       "docAgency":  "UBND Phường Thống Nhất",
                       "source":  "vbden",
                       "createdAt":  "2026-06-19T00:00:00.000Z"
                   },
                   {
-                      "id":  "v025",
+                      "id":  "v_387_BC_UBND_oanhntm",
                       "title":  "Đề xuất xử lý đưa ra khỏi quy hoạch các nội dung bất cập, không phù hợp thực tế",
                       "field":  "Quản lý đất đai",
                       "assignee":  "Nguyễn Thị Mỹ Oanh",
@@ -511,14 +511,14 @@
                       "start":  "2026-06-19",
                       "due":  "",
                       "progress":  0,
-                      "notes":  "Số KH: 387/BC-UBND - CQ ban hành: UBND Phường Thống Nhất - Luồng chuyển: tritd -\u003e oanhntm. Nguồn: Văn bản đến tháng 6/2026.",
+                      "notes":  "So KH: 387/BC-UBND - CQ: UBND Phường Thống Nhất - Luong chuyen: tritd -\u003e oanhntm. Nguon: Van ban den.",
                       "docSymbol":  "387/BC-UBND",
                       "docAgency":  "UBND Phường Thống Nhất",
                       "source":  "vbden",
                       "createdAt":  "2026-06-19T00:00:00.000Z"
                   },
                   {
-                      "id":  "v026",
+                      "id":  "v_387_BC_UBND_lylh",
                       "title":  "Đề xuất xử lý đưa ra khỏi quy hoạch các nội dung bất cập, không phù hợp thực tế",
                       "field":  "Quản lý đất đai",
                       "assignee":  "Lê Hương Lý",
@@ -527,14 +527,14 @@
                       "start":  "2026-06-19",
                       "due":  "",
                       "progress":  0,
-                      "notes":  "Số KH: 387/BC-UBND - CQ ban hành: UBND Phường Thống Nhất - Luồng chuyển: tritd -\u003e lylh. Nguồn: Văn bản đến tháng 6/2026.",
+                      "notes":  "So KH: 387/BC-UBND - CQ: UBND Phường Thống Nhất - Luong chuyen: tritd -\u003e lylh. Nguon: Van ban den.",
                       "docSymbol":  "387/BC-UBND",
                       "docAgency":  "UBND Phường Thống Nhất",
                       "source":  "vbden",
                       "createdAt":  "2026-06-19T00:00:00.000Z"
                   },
                   {
-                      "id":  "v027",
+                      "id":  "v_387_BC_UBND_nguyennt",
                       "title":  "Đề xuất xử lý đưa ra khỏi quy hoạch các nội dung bất cập, không phù hợp thực tế",
                       "field":  "Quản lý đất đai",
                       "assignee":  "Nguyễn Thái Nguyên",
@@ -543,14 +543,14 @@
                       "start":  "2026-06-19",
                       "due":  "",
                       "progress":  0,
-                      "notes":  "Số KH: 387/BC-UBND - CQ ban hành: UBND Phường Thống Nhất - Luồng chuyển: tritd -\u003e nguyennt. Nguồn: Văn bản đến tháng 6/2026.",
+                      "notes":  "So KH: 387/BC-UBND - CQ: UBND Phường Thống Nhất - Luong chuyen: tritd -\u003e nguyennt. Nguon: Van ban den.",
                       "docSymbol":  "387/BC-UBND",
                       "docAgency":  "UBND Phường Thống Nhất",
                       "source":  "vbden",
                       "createdAt":  "2026-06-19T00:00:00.000Z"
                   },
                   {
-                      "id":  "v028",
+                      "id":  "v_109_TTr_UBND_lylh",
                       "title":  "Xem xét chủ trương tiếp nhận quỹ đất kêu gọi đầu tư Dự án Chợ Yên Thế",
                       "field":  "Quản lý đất đai",
                       "assignee":  "Lê Hương Lý",
@@ -559,14 +559,14 @@
                       "start":  "2026-06-19",
                       "due":  "",
                       "progress":  0,
-                      "notes":  "Số KH: 109/TTr-UBND - CQ ban hành: UBND Phường Thống Nhất - Luồng chuyển: tritd -\u003e lylh. Nguồn: Văn bản đến tháng 6/2026.",
+                      "notes":  "So KH: 109/TTr-UBND - CQ: UBND Phường Thống Nhất - Luong chuyen: tritd -\u003e lylh. Nguon: Van ban den.",
                       "docSymbol":  "109/TTr-UBND",
                       "docAgency":  "UBND Phường Thống Nhất",
                       "source":  "vbden",
                       "createdAt":  "2026-06-19T00:00:00.000Z"
                   },
                   {
-                      "id":  "v029",
+                      "id":  "v_109_TTr_UBND_truongtm",
                       "title":  "Xem xét chủ trương tiếp nhận quỹ đất kêu gọi đầu tư Dự án Chợ Yên Thế",
                       "field":  "Quản lý đất đai",
                       "assignee":  "Trần Mạnh Trường",
@@ -575,14 +575,14 @@
                       "start":  "2026-06-19",
                       "due":  "",
                       "progress":  0,
-                      "notes":  "Số KH: 109/TTr-UBND - CQ ban hành: UBND Phường Thống Nhất - Luồng chuyển: tritd -\u003e truongtm. Nguồn: Văn bản đến tháng 6/2026.",
+                      "notes":  "So KH: 109/TTr-UBND - CQ: UBND Phường Thống Nhất - Luong chuyen: tritd -\u003e truongtm. Nguon: Van ban den.",
                       "docSymbol":  "109/TTr-UBND",
                       "docAgency":  "UBND Phường Thống Nhất",
                       "source":  "vbden",
                       "createdAt":  "2026-06-19T00:00:00.000Z"
                   },
                   {
-                      "id":  "v030",
+                      "id":  "v_109_TTr_UBND_nhidty",
                       "title":  "Xem xét chủ trương tiếp nhận quỹ đất kêu gọi đầu tư Dự án Chợ Yên Thế",
                       "field":  "Quản lý đất đai",
                       "assignee":  "Đào Thị Yến Nhi",
@@ -591,14 +591,14 @@
                       "start":  "2026-06-19",
                       "due":  "",
                       "progress":  0,
-                      "notes":  "Số KH: 109/TTr-UBND - CQ ban hành: UBND Phường Thống Nhất - Luồng chuyển: tritd -\u003e nhidty. Nguồn: Văn bản đến tháng 6/2026.",
+                      "notes":  "So KH: 109/TTr-UBND - CQ: UBND Phường Thống Nhất - Luong chuyen: tritd -\u003e nhidty. Nguon: Van ban den.",
                       "docSymbol":  "109/TTr-UBND",
                       "docAgency":  "UBND Phường Thống Nhất",
                       "source":  "vbden",
                       "createdAt":  "2026-06-19T00:00:00.000Z"
                   },
                   {
-                      "id":  "v031",
+                      "id":  "v_109_TTr_UBND_phuongthaont",
                       "title":  "Xem xét chủ trương tiếp nhận quỹ đất kêu gọi đầu tư Dự án Chợ Yên Thế",
                       "field":  "Quản lý đất đai",
                       "assignee":  "Nguyễn Thị Phương Thảo",
@@ -607,14 +607,14 @@
                       "start":  "2026-06-19",
                       "due":  "",
                       "progress":  0,
-                      "notes":  "Số KH: 109/TTr-UBND - CQ ban hành: UBND Phường Thống Nhất - Luồng chuyển: tritd -\u003e phuongthaont. Nguồn: Văn bản đến tháng 6/2026.",
+                      "notes":  "So KH: 109/TTr-UBND - CQ: UBND Phường Thống Nhất - Luong chuyen: tritd -\u003e phuongthaont. Nguon: Van ban den.",
                       "docSymbol":  "109/TTr-UBND",
                       "docAgency":  "UBND Phường Thống Nhất",
                       "source":  "vbden",
                       "createdAt":  "2026-06-19T00:00:00.000Z"
                   },
                   {
-                      "id":  "v032",
+                      "id":  "v_1582_UBND_VPHDNDUBND_thipl",
                       "title":  "Phối hợp rà soát dữ liệu phục vụ cấp, gắn biển số nhà cho hộ dân",
                       "field":  "Quy hoạch \u0026 đô thị",
                       "assignee":  "Phạm Lê Thi",
@@ -623,14 +623,14 @@
                       "start":  "2026-06-19",
                       "due":  "",
                       "progress":  0,
-                      "notes":  "Số KH: 1582/UBND-VPHDNDUBND - CQ ban hành: UBND Phường Thống Nhất - Luồng chuyển: tritd -\u003e thipl. Nguồn: Văn bản đến tháng 6/2026.",
+                      "notes":  "So KH: 1582/UBND-VPHDNDUBND - CQ: UBND Phường Thống Nhất - Luong chuyen: tritd -\u003e thipl. Nguon: Van ban den.",
                       "docSymbol":  "1582/UBND-VPHDNDUBND",
                       "docAgency":  "UBND Phường Thống Nhất",
                       "source":  "vbden",
                       "createdAt":  "2026-06-19T00:00:00.000Z"
                   },
                   {
-                      "id":  "v033",
+                      "id":  "v_1572_UBND_PKTHTDT_chungtth",
                       "title":  "Rà soát, đăng ký danh mục kế hoạch đầu tư công trung hạn 2026-2030 và kinh phí CTMTQG năm 2026",
                       "field":  "Dự án đầu tư",
                       "assignee":  "Trương Thị Hà Chung",
@@ -639,14 +639,14 @@
                       "start":  "2026-06-18",
                       "due":  "",
                       "progress":  0,
-                      "notes":  "Số KH: 1572/UBND-PKTHTDT - CQ ban hành: UBND Phường Thống Nhất - Luồng chuyển: tritd -\u003e chungtth. Nguồn: Văn bản đến tháng 6/2026.",
+                      "notes":  "So KH: 1572/UBND-PKTHTDT - CQ: UBND Phường Thống Nhất - Luong chuyen: tritd -\u003e chungtth. Nguon: Van ban den.",
                       "docSymbol":  "1572/UBND-PKTHTDT",
                       "docAgency":  "UBND Phường Thống Nhất",
                       "source":  "vbden",
                       "createdAt":  "2026-06-18T00:00:00.000Z"
                   },
                   {
-                      "id":  "v034",
+                      "id":  "v_1572_UBND_PKTHTDT_ducdt",
                       "title":  "Rà soát, đăng ký danh mục kế hoạch đầu tư công trung hạn 2026-2030 và kinh phí CTMTQG năm 2026",
                       "field":  "Dự án đầu tư",
                       "assignee":  "Dương Thế Đức",
@@ -655,14 +655,14 @@
                       "start":  "2026-06-18",
                       "due":  "",
                       "progress":  0,
-                      "notes":  "Số KH: 1572/UBND-PKTHTDT - CQ ban hành: UBND Phường Thống Nhất - Luồng chuyển: tritd -\u003e ducdt. Nguồn: Văn bản đến tháng 6/2026.",
+                      "notes":  "So KH: 1572/UBND-PKTHTDT - CQ: UBND Phường Thống Nhất - Luong chuyen: tritd -\u003e ducdt. Nguon: Van ban den.",
                       "docSymbol":  "1572/UBND-PKTHTDT",
                       "docAgency":  "UBND Phường Thống Nhất",
                       "source":  "vbden",
                       "createdAt":  "2026-06-18T00:00:00.000Z"
                   },
                   {
-                      "id":  "v035",
+                      "id":  "v_1572_UBND_PKTHTDT_truongtm",
                       "title":  "Rà soát, đăng ký danh mục kế hoạch đầu tư công trung hạn 2026-2030 và kinh phí CTMTQG năm 2026",
                       "field":  "Dự án đầu tư",
                       "assignee":  "Trần Mạnh Trường",
@@ -671,14 +671,14 @@
                       "start":  "2026-06-18",
                       "due":  "",
                       "progress":  0,
-                      "notes":  "Số KH: 1572/UBND-PKTHTDT - CQ ban hành: UBND Phường Thống Nhất - Luồng chuyển: tritd -\u003e truongtm. Nguồn: Văn bản đến tháng 6/2026.",
+                      "notes":  "So KH: 1572/UBND-PKTHTDT - CQ: UBND Phường Thống Nhất - Luong chuyen: tritd -\u003e truongtm. Nguon: Van ban den.",
                       "docSymbol":  "1572/UBND-PKTHTDT",
                       "docAgency":  "UBND Phường Thống Nhất",
                       "source":  "vbden",
                       "createdAt":  "2026-06-18T00:00:00.000Z"
                   },
                   {
-                      "id":  "v036",
+                      "id":  "v_1572_UBND_PKTHTDT_phuongthaont",
                       "title":  "Rà soát, đăng ký danh mục kế hoạch đầu tư công trung hạn 2026-2030 và kinh phí CTMTQG năm 2026",
                       "field":  "Dự án đầu tư",
                       "assignee":  "Nguyễn Thị Phương Thảo",
@@ -687,14 +687,14 @@
                       "start":  "2026-06-18",
                       "due":  "",
                       "progress":  0,
-                      "notes":  "Số KH: 1572/UBND-PKTHTDT - CQ ban hành: UBND Phường Thống Nhất - Luồng chuyển: tritd -\u003e phuongthaont. Nguồn: Văn bản đến tháng 6/2026.",
+                      "notes":  "So KH: 1572/UBND-PKTHTDT - CQ: UBND Phường Thống Nhất - Luong chuyen: tritd -\u003e phuongthaont. Nguon: Van ban den.",
                       "docSymbol":  "1572/UBND-PKTHTDT",
                       "docAgency":  "UBND Phường Thống Nhất",
                       "source":  "vbden",
                       "createdAt":  "2026-06-18T00:00:00.000Z"
                   },
                   {
-                      "id":  "v037",
+                      "id":  "v_02__A_UBND_thinhnh",
                       "title":  "Đề án sắp xếp, tổ chức lại và đổi tên tổ dân phố, làng",
                       "field":  "Khác",
                       "assignee":  "Nguyễn Hữu Thịnh",
@@ -703,14 +703,14 @@
                       "start":  "2026-06-18",
                       "due":  "",
                       "progress":  0,
-                      "notes":  "Số KH: 02/ĐA-UBND - CQ ban hành: UBND Phường Thống Nhất - Luồng chuyển: tritd -\u003e thinhnh. Nguồn: Văn bản đến tháng 6/2026.",
+                      "notes":  "So KH: 02/ĐA-UBND - CQ: UBND Phường Thống Nhất - Luong chuyen: tritd -\u003e thinhnh. Nguon: Van ban den.",
                       "docSymbol":  "02/ĐA-UBND",
                       "docAgency":  "UBND Phường Thống Nhất",
                       "source":  "vbden",
                       "createdAt":  "2026-06-18T00:00:00.000Z"
                   },
                   {
-                      "id":  "v038",
+                      "id":  "v_02__A_UBND_truongtm",
                       "title":  "Đề án sắp xếp, tổ chức lại và đổi tên tổ dân phố, làng",
                       "field":  "Khác",
                       "assignee":  "Trần Mạnh Trường",
@@ -719,14 +719,14 @@
                       "start":  "2026-06-18",
                       "due":  "",
                       "progress":  0,
-                      "notes":  "Số KH: 02/ĐA-UBND - CQ ban hành: UBND Phường Thống Nhất - Luồng chuyển: tritd -\u003e truongtm. Nguồn: Văn bản đến tháng 6/2026.",
+                      "notes":  "So KH: 02/ĐA-UBND - CQ: UBND Phường Thống Nhất - Luong chuyen: tritd -\u003e truongtm. Nguon: Van ban den.",
                       "docSymbol":  "02/ĐA-UBND",
                       "docAgency":  "UBND Phường Thống Nhất",
                       "source":  "vbden",
                       "createdAt":  "2026-06-18T00:00:00.000Z"
                   },
                   {
-                      "id":  "v039",
+                      "id":  "v_1570_UBND_VPHDNDUBND_tritd",
                       "title":  "Rà soát, kiện toàn tổ chức, nhân sự sau sắp xếp tổ dân phố, làng",
                       "field":  "Công tác Đảng - nội bộ phòng",
                       "assignee":  "Trần Đại Trí",
@@ -735,14 +735,14 @@
                       "start":  "2026-06-18",
                       "due":  "",
                       "progress":  0,
-                      "notes":  "Số KH: 1570/UBND-VPHDNDUBND - CQ ban hành: UBND Phường Thống Nhất - Luồng chuyển: tritd -\u003e tritd. Nguồn: Văn bản đến tháng 6/2026.",
+                      "notes":  "So KH: 1570/UBND-VPHDNDUBND - CQ: UBND Phường Thống Nhất - Luong chuyen: tritd -\u003e tritd. Nguon: Van ban den.",
                       "docSymbol":  "1570/UBND-VPHDNDUBND",
                       "docAgency":  "UBND Phường Thống Nhất",
                       "source":  "vbden",
                       "createdAt":  "2026-06-18T00:00:00.000Z"
                   },
                   {
-                      "id":  "v040",
+                      "id":  "v_1592_UBND_PVHXH_tritd",
                       "title":  "Triển khai Thông báo mời gửi kịch bản Cuộc thi Sáng tác kịch bản phim 2026",
                       "field":  "Khác",
                       "assignee":  "Trần Đại Trí",
@@ -751,14 +751,14 @@
                       "start":  "2026-06-19",
                       "due":  "",
                       "progress":  0,
-                      "notes":  "Số KH: 1592/UBND-PVHXH - CQ ban hành: UBND Phường Thống Nhất - Luồng chuyển: tritd -\u003e tritd. Nguồn: Văn bản đến tháng 6/2026.",
+                      "notes":  "So KH: 1592/UBND-PVHXH - CQ: UBND Phường Thống Nhất - Luong chuyen: tritd -\u003e tritd. Nguon: Van ban den.",
                       "docSymbol":  "1592/UBND-PVHXH",
                       "docAgency":  "UBND Phường Thống Nhất",
                       "source":  "vbden",
                       "createdAt":  "2026-06-19T00:00:00.000Z"
                   },
                   {
-                      "id":  "v041",
+                      "id":  "v_1580_UBND_PKTHTDT_thachdq",
                       "title":  "Rà soát diện tích đất cây xanh sử dụng công cộng trong đô thị",
                       "field":  "Quy hoạch \u0026 đô thị",
                       "assignee":  "Đào Quang Thạch",
@@ -767,7 +767,7 @@
                       "start":  "2026-06-19",
                       "due":  "",
                       "progress":  0,
-                      "notes":  "Số KH: 1580/UBND-PKTHTDT - CQ ban hành: UBND Phường Thống Nhất - Luồng chuyển: tritd -\u003e thachdq. Nguồn: Văn bản đến tháng 6/2026.",
+                      "notes":  "So KH: 1580/UBND-PKTHTDT - CQ: UBND Phường Thống Nhất - Luong chuyen: tritd -\u003e thachdq. Nguon: Van ban den.",
                       "docSymbol":  "1580/UBND-PKTHTDT",
                       "docAgency":  "UBND Phường Thống Nhất",
                       "source":  "vbden",

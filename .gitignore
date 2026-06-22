@@ -15,3 +15,6 @@ van-ban-den*.csv
 # Du lieu van ban den + script tam (khong cong khai)
 sao-luu-cong-viec-ktht-vbden-*.json
 _gen_*.ps1
+_sync_logic.ps1
+_sync_config.json
+_docs_input.json

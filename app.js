@@ -761,11 +761,20 @@ async function boot() {
     if (res.ok) {
       const remote = await res.json();
       if (remote && Array.isArray(remote.tasks)) {
+        const prev = load().tasks || [];
+        const prevById = {};
+        prev.forEach(t => { prevById[t.id] = t; });
+        // giữ tiến độ/trạng thái người dùng đã chỉnh cho các việc đồng bộ
+        const synced = remote.tasks.map(t => {
+          const p = prevById[t.id];
+          return p ? { ...t, status: p.status, progress: p.progress,
+                       notes: p.notes && p.notes !== t.notes ? p.notes : t.notes } : t;
+        });
         // giữ lại các đầu việc người dùng tự thêm tay
-        const manual = (load().tasks || []).filter(t => t.source === "manual");
+        const manual = prev.filter(t => t.source === "manual");
         state = {
           staff: remote.staff || [],
-          tasks: [...remote.tasks, ...manual],
+          tasks: [...synced, ...manual],
           syncedAt: remote.syncedAt || ""
         };
         save();
