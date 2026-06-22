@@ -534,13 +534,33 @@ document.getElementById("vb-file-input").addEventListener("change", e => {
         aoa = XLSX.utils.sheet_to_json(ws, { header: 1, raw: true, defval: "" });
       } catch (err) { aoa = null; }
     }
-    // 2) Dự phòng: tự đọc dạng văn bản (CSV) — dùng khi không có thư viện hoặc file là .csv
+    // 2) Dự phòng: tự đọc dạng văn bản (CSV) — CHỈ khi là file văn bản, không phải nhị phân
     if (!aoa || !aoa.length) {
-      try {
-        const text = new TextDecoder("utf-8").decode(reader.result);
-        const csv = parseCSVText(text);
-        if (csv.length) aoa = csv;
-      } catch (err) { /* bỏ qua */ }
+      const bytes = new Uint8Array(reader.result);
+      const lim = Math.min(bytes.length, 8192);
+      let nulls = 0;
+      for (let i = 0; i < lim; i++) if (bytes[i] === 0) nulls++;
+      const isZip = bytes[0] === 0x50 && bytes[1] === 0x4B;               // "PK" -> xlsx/docx (file nén)
+      const isPdf = bytes[0] === 0x25 && bytes[1] === 0x50 && bytes[2] === 0x44 && bytes[3] === 0x46; // %PDF
+      let looksBinary = nulls > 0 || isZip || isPdf;
+      if (!looksBinary) {
+        try {
+          const text = new TextDecoder("utf-8").decode(reader.result);
+          const bad = (text.match(/�/g) || []).length;              // ký tự lỗi mã hóa
+          if (bad <= text.length * 0.02) {
+            const csv = parseCSVText(text);
+            if (csv.length) aoa = csv;
+          } else { looksBinary = true; }
+        } catch (err) { looksBinary = true; }
+      }
+      if (looksBinary) {
+        const why = window.XLSX
+          ? ""
+          : "\n\n⚠ Thư viện đọc Excel chưa nạp được. Hãy tải lại trang bằng Ctrl+Shift+R rồi thử lại.";
+        alert("File này không phải bảng Excel/CSV hợp lệ (có thể là PDF, Word, hoặc file đã hỏng). "
+          + "Vui lòng chọn đúng file .xlsx/.xls/.csv kết xuất từ hệ Văn bản đến." + why);
+        e.target.value = ""; return;
+      }
     }
     if (!aoa || !aoa.length) {
       alert("Không đọc được dữ liệu từ file. Hãy thử kết xuất lại ở định dạng .xlsx hoặc .csv rồi nhập lại.");
